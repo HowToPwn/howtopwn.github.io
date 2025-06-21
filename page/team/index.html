@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Team - HowToPwn</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons"><span></span><span></span><span></span></div>
+                        <div class="terminal-title"><span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span></div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home"><i class="fas fa-home"></i><span>/home</span></a>
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team"><i class="fas fa-users"></i><span>/team</span></a>
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services"><i class="fas fa-cogs"></i><span>/services</span></a>
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups"><i class="fas fa-file-code"></i><span>/writeups</span></a>
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact"><i class="fas fa-envelope"></i><span>/contact</span></a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+        </div>
+    </header>
+    <main class="page-content">
+        <section class="page-header">
+            <h1 class="page-title">Our Team</h1>
+            <p class="page-subtitle">The masterminds behind the hacks. Meet the crew that makes it all happen.</p>
+        </section>
+        <section class="content-section">
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>V1</span></div>
+                        <div class="member-info"><h3>V1per</h3><p class="member-role">Team Lead & Pwn-Master</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Binary Exploitation</span><span class="specialty-tag">Reverse Engineering</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-cube"></i></a></div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Cy</span></div>
+                        <div class="member-info"><h3>Cypher</h3><p class="member-role">Web Security Specialist</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Web Exploitation</span><span class="specialty-tag">SQL Injection</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-user-secret"></i></a></div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Gl</span></div>
+                        <div class="member-info"><h3>Glitch</h3><p class="member-role">Forensics & RE Expert</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Digital Forensics</span><span class="specialty-tag">Malware Analysis</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-cube"></i></a></div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Ny</span></div>
+                        <div class="member-info"><h3>Nyx</h3><p class="member-role">Network Security Engineer</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Network Pentesting</span><span class="specialty-tag">Firewall Bypassing</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-user-secret"></i></a></div>
+                    </div>
+                </div>
+                 <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Sh</span></div>
+                        <div class="member-info"><h3>Shadow</h3><p class="member-role">Cryptography Specialist</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Cryptography</span><span class="specialty-tag">Steganography</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-cube"></i></a></div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="500">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Rk</span></div>
+                        <div class="member-info"><h3>Rook</h3><p class="member-role">OSINT & Social Engineering</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">OSINT</span><span class="specialty-tag">Social Engineering</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-user-secret"></i></a></div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="600">
+                    <div class="member-header">
+                        <div class="member-avatar"><span>Z0</span></div>
+                        <div class="member-info"><h3>Zero</h3><p class="member-role">Red Team Operator</p></div>
+                    </div>
+                    <div class="member-details">
+                        <div class="member-specialties"><span class="specialty-tag">Red Teaming</span><span class="specialty-tag">Active Directory</span></div>
+                        <div class="member-links"><a href="#" class="member-link"><i class="fab fa-github"></i></a><a href="#" class="member-link"><i class="fab fa-twitter"></i></a><a href="#" class="member-link"><i class="fas fa-cube"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-bottom glass-panel">
+                <div class="footer-bottom-content">
+                    <div class="terminal-line"><span class="prompt">$</span><span class="command">echo "© 2025 HowToPwn. All rights reserved."</span></div>
+                    <div class="footer-quote"><i class="fas fa-quote-left"></i><span>"The only secure system is one that is powered off..."</span><i class="fas fa-quote-right"></i><span class="quote-author">- Gene Spafford</span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="importmap">{"imports": {"three": "https://unpkg.com/three@0.157.0/build/three.module.js","three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"}}</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script>AOS.init({duration: 800, easing: 'ease-out', once: true, offset: 100});</script>
+</body>
+</html>

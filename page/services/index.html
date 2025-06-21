@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Services - HowToPwn</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons"><span></span><span></span><span></span></div>
+                        <div class="terminal-title"><span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span></div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home"><i class="fas fa-home"></i><span>/home</span></a>
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team"><i class="fas fa-users"></i><span>/team</span></a>
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services"><i class="fas fa-cogs"></i><span>/services</span></a>
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups"><i class="fas fa-file-code"></i><span>/writeups</span></a>
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact"><i class="fas fa-envelope"></i><span>/contact</span></a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+        </div>
+    </header>
+    <main class="page-content">
+        <section class="page-header">
+            <h1 class="page-title">Our Services</h1>
+            <p class="page-subtitle">Providing elite solutions to modern cybersecurity challenges.</p>
+        </section>
+        <section class="content-section">
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="service-title">Penetration Testing</h3>
+                    <p class="service-description">Professional security assessments to identify and exploit vulnerabilities in your systems before attackers do.</p>
+                    <ul class="service-features">
+                        <li>Web Application Testing</li>
+                        <li>Network Security Assessment</li>
+                        <li>Mobile Application Security</li>
+                        <li>API Security Testing</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-flag"></i></div>
+                    <h3 class="service-title">CTF Training</h3>
+                    <p class="service-description">Learn cybersecurity through hands-on Capture The Flag training sessions, from beginner to advanced levels.</p>
+                    <ul class="service-features">
+                        <li>Beginner-friendly workshops</li>
+                        <li>Advanced exploitation techniques</li>
+                        <li>Custom CTF challenge development</li>
+                        <li>Team training sessions</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3 class="service-title">Security Consulting</h3>
+                    <p class="service-description">Expert guidance on improving your organization's security posture, from architecture to incident response.</p>
+                    <ul class="service-features">
+                        <li>Security architecture review</li>
+                        <li>Threat modeling</li>
+                        <li>Security policy development</li>
+                        <li>Incident response planning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-bottom glass-panel">
+                <div class="footer-bottom-content">
+                    <div class="terminal-line"><span class="prompt">$</span><span class="command">echo "© 2025 HowToPwn. All rights reserved."</span></div>
+                    <div class="footer-quote"><i class="fas fa-quote-left"></i><span>"The only secure system is one that is powered off..."</span><i class="fas fa-quote-right"></i><span class="quote-author">- Gene Spafford</span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="importmap">{"imports": {"three": "https://unpkg.com/three@0.157.0/build/three.module.js","three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"}}</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script>AOS.init({duration: 800, easing: 'ease-out', once: true, offset: 100});</script>
+</body>
+</html>

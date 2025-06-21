@@ -49,24 +49,29 @@
                         <i class="fas fa-home"></i>
                         <span>/home</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/about/" data-text="/team">
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team">
                         <i class="fas fa-users"></i>
                         <span>/team</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/services/" data-text="/services">
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services">
                         <i class="fas fa-cogs"></i>
                         <span>/services</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/writeups/" data-text="/writeups">
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups">
                         <i class="fas fa-file-code"></i>
                         <span>/writeups</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/contact/" data-text="/contact">
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact">
                         <i class="fas fa-envelope"></i>
                         <span>/contact</span>
                     </a>
                 </div>
             </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
         </div>
     </header>
 
@@ -90,20 +95,17 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div class="terminal-title">HowToPwn_Terminal</div>
+                            <div class="terminal-title">
+                                <i class="fas fa-terminal"></i>
+                                <span>HowToPwn_Terminal</span>
+                                <div class="terminal-status">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span class="status-text">CONNECTED</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="terminal-body">
-                            <div class="line">
-                                <span class="prompt">root@HowToPwn:~#</span>
-                                <span class="command typing">./initialize_system.sh</span>
-                            </div>
-                            <div class="line">
-                                <span class="output">System initialized... Loading core modules...</span>
-                            </div>
-                            <div class="line typing">
-                                <span class="prompt">root@HowToPwn:~#</span>
-                                <span class="command">./deploy_mission.sh --target="cybersecurity_excellence"</span>
-                            </div>
+                            <!-- Content will be populated by JavaScript typing effect -->
                         </div>
                     </div>
                 </div>
@@ -118,7 +120,7 @@
                     </div>
                     
                     <div class="stats-grid">
-                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="100">
                             <div class="stat-icon pulse-effect">
                                 <i class="fas fa-trophy"></i>
                             </div>
@@ -128,7 +130,7 @@
                                 <div class="progress-bar" data-progress="85"></div>
                             </div>
                         </div>
-                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="200">
                             <div class="stat-icon pulse-effect">
                                 <i class="fas fa-medal"></i>
                             </div>
@@ -138,7 +140,7 @@
                                 <div class="progress-bar" data-progress="75"></div>
                             </div>
                         </div>
-                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="300" data-tilt>
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="300">
                             <div class="stat-icon pulse-effect">
                                 <i class="fas fa-star"></i>
                             </div>
@@ -151,13 +153,13 @@
                     </div>
 
                     <div class="cta-container">
-                        <a href="/services/" class="cta-button primary glass-panel" data-tilt>
+                        <a href="/page/services/" class="cta-button primary glass-panel">
                             <span class="button-text">./start_mission.sh</span>
                             <span class="button-icon">
                                 <i class="fas fa-terminal"></i>
                             </span>
                         </a>
-                        <a href="/contact/" class="cta-button secondary glass-panel" data-tilt>
+                        <a href="/page/contact/" class="cta-button secondary glass-panel">
                             <span class="button-text">./connect.sh</span>
                             <span class="button-icon">
                                 <i class="fas fa-network-wired"></i>
@@ -198,7 +200,7 @@
                         </div>
                         
                         <div class="achievement-cards">
-                            <div class="achievement-card glass-card" data-tilt data-tilt-max="5">
+                            <div class="achievement-card glass-card">
                                 <div class="achievement-icon glow-effect">
                                     <i class="fas fa-trophy"></i>
                                 </div>
@@ -222,7 +224,7 @@
                                 <div class="card-glow"></div>
                             </div>
 
-                            <div class="achievement-card glass-card" data-tilt data-tilt-max="5">
+                            <div class="achievement-card glass-card">
                                 <div class="achievement-icon glow-effect">
                                     <i class="fas fa-medal"></i>
                                 </div>
@@ -259,7 +261,7 @@
                         </div>
                         
                         <div class="writeup-cards">
-                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                            <article class="writeup-card glass-card">
                                 <div class="writeup-header">
                                     <div class="writeup-meta">
                                         <div class="writeup-category glow-effect">
@@ -292,7 +294,7 @@
                                 <div class="card-glow"></div>
                             </article>
 
-                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                            <article class="writeup-card glass-card">
                                 <div class="writeup-header">
                                     <div class="writeup-meta">
                                         <div class="writeup-category glow-effect">
@@ -343,69 +345,103 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <span class="terminal-title">HowToPwn_Terminal</span>
+                            <div class="terminal-title">
+                                <i class="fas fa-terminal"></i>
+                                <span>HowToPwn_Terminal</span>
+                            </div>
                         </div>
                         <div class="terminal-content">
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="command">whoami</span>
-                            </div>
-                            <div class="terminal-output">Elite Cybersecurity Team</div>
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="command">status</span>
-                            </div>
-                            <div class="system-status">
-                                <div class="status-item">
-                                    <span class="status-dot active pulse-effect"></span>
-                                    <span>System: Online</span>
-                                </div>
-                                <div class="status-item">
-                                    <span class="status-dot active pulse-effect"></span>
-                                    <span>Security: Maximum</span>
-                                </div>
-                            </div>
+                            <!-- Content will be populated by JavaScript typing effect -->
                         </div>
                     </div>
                 </div>
 
-                <nav class="footer-links">
-                    <h3 class="footer-heading gradient-text">Navigation</h3>
-                    <div class="footer-nav">
-                        <a href="/about/" class="nav-link glow-effect">./team</a>
-                        <a href="/services/" class="nav-link glow-effect">./services</a>
-                        <a href="/writeups/" class="nav-link glow-effect">./writeups</a>
-                        <a href="/contact/" class="nav-link glow-effect">./contact</a>
-                    </div>
-                </nav>
+                <div class="footer-sections">
+                    <nav class="footer-links">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-sitemap"></i>
+                            Navigation
+                        </h3>
+                        <div class="footer-nav">
+                            <a href="/page/about/" class="nav-link glow-effect">
+                                <i class="fas fa-users"></i>
+                                <span>./team</span>
+                            </a>
+                            <a href="/page/services/" class="nav-link glow-effect">
+                                <i class="fas fa-cogs"></i>
+                                <span>./services</span>
+                            </a>
+                            <a href="/page/writeups/" class="nav-link glow-effect">
+                                <i class="fas fa-file-code"></i>
+                                <span>./writeups</span>
+                            </a>
+                            <a href="/page/contact/" class="nav-link glow-effect">
+                                <i class="fas fa-envelope"></i>
+                                <span>./contact</span>
+                            </a>
+                        </div>
+                    </nav>
 
-                <div class="footer-social">
-                    <h3 class="footer-heading gradient-text">Connect</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fas fa-cube"></i>
-                            <span>HackTheBox</span>
-                        </a>
-                        <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fas fa-user-secret"></i>
-                            <span>TryHackMe</span>
-                        </a>
+                    <div class="footer-social">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-network-wired"></i>
+                            Connect
+                        </h3>
+                        <div class="social-links">
+                            <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fas fa-cube"></i>
+                                <span>HackTheBox</span>
+                            </a>
+                            <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fas fa-user-secret"></i>
+                                <span>TryHackMe</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-achievements">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-trophy"></i>
+                            Achievements
+                        </h3>
+                        <div class="achievement-list">
+                            <div class="achievement-item">
+                                <span class="achievement-icon">🏆</span>
+                                <span class="achievement-text">HTB Apocalypse #54</span>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-icon">🥇</span>
+                                <span class="achievement-text">HTB Global #80</span>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-icon">⭐</span>
+                                <span class="achievement-text">THM Hackfinity #80</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom glass-panel">
-                <div class="terminal-line">
-                    <span class="prompt">$</span>
-                    <span class="command">echo "© 2025 HowToPwn. All rights reserved."</span>
+                <div class="footer-bottom-content">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo "© 2025 HowToPwn. All rights reserved."</span>
+                    </div>
+                    <div class="footer-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"The only secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards."</span>
+                        <i class="fas fa-quote-right"></i>
+                        <span class="quote-author">- Kevin Mitnick</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -423,13 +459,11 @@
     
     <!-- Libraries -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
     
     <!-- Custom Scripts -->
     <script type="module" src="/assets/js/3d-background.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/matrix-rain.js"></script>
-    <script src="/assets/js/card-hover.js"></script>
 
     <!-- Initialize libraries -->
     <script>
@@ -439,44 +473,6 @@
             easing: 'ease-out',
             once: true,
             offset: 100
-        });
-        
-        // Initialize vanilla-tilt
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 5,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2
-        });
-        
-        // Initialize typing effect
-        document.addEventListener('DOMContentLoaded', function() {
-            const text = "Established March 2025 | Rising Force in Cybersecurity";
-            const typingText = document.querySelector('.typing-text');
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    typingText.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            }
-            
-            typeWriter();
-            
-            // Animate progress bars when in view
-            const progressBars = document.querySelectorAll('.progress-bar');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const progress = entry.target.dataset.progress;
-                        entry.target.style.width = `${progress}%`;
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            progressBars.forEach(bar => observer.observe(bar));
         });
     </script>
 </body>

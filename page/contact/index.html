@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - HowToPwn</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons"><span></span><span></span><span></span></div>
+                        <div class="terminal-title"><span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span></div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home"><i class="fas fa-home"></i><span>/home</span></a>
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team"><i class="fas fa-users"></i><span>/team</span></a>
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services"><i class="fas fa-cogs"></i><span>/services</span></a>
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups"><i class="fas fa-file-code"></i><span>/writeups</span></a>
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact"><i class="fas fa-envelope"></i><span>/contact</span></a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+        </div>
+    </header>
+    <main class="page-content">
+        <section class="page-header">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">We'd love to hear from you. Whether you have a question about our services or just want to say hi, feel free to drop us a line.</p>
+        </section>
+        <section class="content-section">
+            <div class="contact-form-container" data-aos="fade-up">
+                <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="What is this about?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="6" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-button">
+                            <span class="button-text">Send Message</span>
+                            <span class="button-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-bottom glass-panel">
+                <div class="footer-bottom-content">
+                    <div class="terminal-line"><span class="prompt">$</span><span class="command">echo "© 2025 HowToPwn. All rights reserved."</span></div>
+                    <div class="footer-quote"><i class="fas fa-quote-left"></i><span>"The only secure system is one that is powered off..."</span><i class="fas fa-quote-right"></i><span class="quote-author">- Gene Spafford</span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="importmap">
+        {"imports": {"three": "https://unpkg.com/three@0.157.0/build/three.module.js","three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"}}</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script>AOS.init({duration: 800, easing: 'ease-out', once: true, offset: 100});</script>
+</body>
+</html>

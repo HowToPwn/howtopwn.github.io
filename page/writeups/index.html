@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CTF Writeups - HowToPwn</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons"><span></span><span></span><span></span></div>
+                        <div class="terminal-title"><span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span></div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home"><i class="fas fa-home"></i><span>/home</span></a>
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team"><i class="fas fa-users"></i><span>/team</span></a>
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services"><i class="fas fa-cogs"></i><span>/services</span></a>
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups"><i class="fas fa-file-code"></i><span>/writeups</span></a>
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact"><i class="fas fa-envelope"></i><span>/contact</span></a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+        </div>
+    </header>
+    <main class="page-content">
+        <section class="page-header">
+            <h1 class="page-title">CTF Writeups</h1>
+            <p class="page-subtitle">A collection of our solutions and analysis from various Capture The Flag competitions.</p>
+        </section>
+        <section class="content-section">
+            <div class="writeups-archive">
+                <div class="writeup-card" data-aos="fade-up">
+                    <div class="writeup-header">
+                        <div class="writeup-meta">
+                            <div class="writeup-category"><i class="fas fa-globe"></i> Web Exploitation</div>
+                            <time class="writeup-date"><i class="far fa-calendar-alt"></i> June 21, 2025</time>
+                        </div>
+                        <div class="difficulty"><span class="badge hard">Hard</span></div>
+                    </div>
+                    <div class="writeup-content">
+                        <h3 class="writeup-title"><a href="#">HTB Apocalypse CTF 2025: Web Challenge Walkthrough</a></h3>
+                        <p class="writeup-excerpt">A detailed analysis of the web exploitation challenges we encountered during HTB Apocalypse CTF 2025, including source code review and payload construction.</p>
+                    </div>
+                    <footer class="writeup-footer">
+                        <div class="tags"><span class="tag">Web</span><span class="tag">CTF</span><span class="tag">HTB</span></div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </footer>
+                </div>
+                <div class="writeup-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="writeup-header">
+                        <div class="writeup-meta">
+                            <div class="writeup-category"><i class="fas fa-microchip"></i> Reverse Engineering</div>
+                            <time class="writeup-date"><i class="far fa-calendar-alt"></i> June 15, 2025</time>
+                        </div>
+                        <div class="difficulty"><span class="badge medium">Medium</span></div>
+                    </div>
+                    <div class="writeup-content">
+                        <h3 class="writeup-title"><a href="#">TryHackMe Hackfinity: Binary Analysis</a></h3>
+                        <p class="writeup-excerpt">Our approach to solving the complex binary challenges in TryHackMe Hackfinity 2025, including disassembly and dynamic analysis techniques.</p>
+                    </div>
+                    <footer class="writeup-footer">
+                        <div class="tags"><span class="tag">RE</span><span class="tag">Binary</span><span class="tag">THM</span></div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-bottom glass-panel">
+                <div class="footer-bottom-content">
+                    <div class="terminal-line"><span class="prompt">$</span><span class="command">echo "© 2025 HowToPwn. All rights reserved."</span></div>
+                    <div class="footer-quote"><i class="fas fa-quote-left"></i><span>"The only secure system is one that is powered off..."</span><i class="fas fa-quote-right"></i><span class="quote-author">- Gene Spafford</span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="importmap">{"imports": {"three": "https://unpkg.com/three@0.157.0/build/three.module.js","three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"}}</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script>AOS.init({duration: 800, easing: 'ease-out', once: true, offset: 100});</script>
+</body>
+</html>
