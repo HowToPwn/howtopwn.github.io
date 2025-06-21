@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us - HowToPwn</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="HowToPwn - Professional cybersecurity services and consulting">
+    <meta property="og:title" content="Services - HowToPwn">
+    <meta property="og:description" content="Professional cybersecurity services and consulting">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Three.js Background -->
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    
+    <!-- Header -->
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">HowToPwn</a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home">
+                        <i class="fas fa-home"></i>
+                        <span>/home</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/about-us/" data-text="/team">
+                        <i class="fas fa-users"></i>
+                        <span>/about</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/services/" data-text="/services">
+                        <i class="fas fa-cogs"></i>
+                        <span>/services</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/writeups/" data-text="/writeups">
+                        <i class="fas fa-file-code"></i>
+                        <span>/writeups</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/contact/" data-text="/contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>/contact</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content wrapper">
+            <div class="hero-terminal">
+                <div class="terminal-window active glass-panel">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title"></div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="line">
+                            <span class="prompt">root@HowToPwn:~#</span>
+                            <span class="command typing">cat about_team.txt</span>
+                        </div>
+                        <div class="line">
+                            <span class="output">Welcome to the HowToPwn Team - Cybersecurity for the future!</span>
+                        </div>
+                        <div class="line typing">
+                            <span class="prompt">root@HowToPwn:~#</span>
+                            <span class="command">echo "Empowering cybersecurity through knowledge sharing"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-main">
+                <h1 class="hero-title glitch-text" data-text="Meet The Team">Meet The Team</h1>
+                <div class="hero-subtitle-wrapper">
+                    <p class="hero-subtitle">
+                        <span class="typing-text"></span>
+                        <span class="cursor"></span>
+                    </p>
+                </div>
+                <div class="cta-container">
+                    <a href="/services/" class="cta-button primary glass-panel" data-tilt>
+                        <span class="button-text">./explore_services.sh</span>
+                        <span class="button-icon">
+                            <i class="fas fa-terminal"></i>
+                        </span>
+                    </a>
+                    <a href="/contact/" class="cta-button secondary glass-panel" data-tilt>
+                        <span class="button-text">./contact_team.sh</span>
+                        <span class="button-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <section class="about-section wrapper" data-aos="fade-up">
+            <div class="section-header glass-panel">
+                <div class="section-header-content">
+                    <h2 class="section-title gradient-text">
+                        <span class="terminal-prompt">[root@howtopwn]</span>
+                        <span class="typing">About Our Team</span>
+                        <span class="cursor"></span>
+                    </h2>
+                    <div class="terminal-line">
+                        <span class="prompt">[*]</span>
+                        <span class="command">Mission: Empowering cybersecurity through knowledge sharing and expertise</span>
+                    </div>
+                </div>
+                <div class="section-pattern"></div>
+            </div>
+
+            <!-- Team Overview -->
+            <div class="team-overview glass-card" data-aos="fade-up">
+                <div class="team-content">
+                    <h2 class="gradient-text">Who We Are</h2>
+                    <p>HowToPwn is a collective of passionate cybersecurity professionals, ethical hackers, and security researchers dedicated to sharing knowledge and advancing the field of information security. Our team brings together diverse expertise in various domains of cybersecurity, from web application security to reverse engineering and malware analysis.</p>
+                </div>
+                <div class="mission-vision">
+                    <div class="mission glass-panel" data-tilt data-tilt-max="5">
+                        <h3 class="gradient-text">Our Mission</h3>
+                        <p>To democratize cybersecurity knowledge and empower individuals and organizations with the skills and insights needed to protect their digital assets effectively.</p>
+                    </div>
+                    <div class="vision glass-panel" data-tilt data-tilt-max="5">
+                        <h3 class="gradient-text">Our Vision</h3>
+                        <p>To build a more secure digital world through education, research, and community collaboration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Stats -->
+            <div class="team-stats">
+                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
+                    <i class="fas fa-trophy"></i>
+                    <h3>Global Rankings</h3>
+                    <p class="gradient-text">#54 HTB Apocalypse CTF 2025</p>
+                </div>
+                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
+                    <i class="fas fa-users"></i>
+                    <h3>Team Members</h3>
+                    <p class="gradient-text">15+ Security Experts</p>
+                </div>
+                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
+                    <i class="fas fa-file-code"></i>
+                    <h3>Write-ups Published</h3>
+                    <p class="gradient-text">200+ Technical Guides</p>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="core-values glass-card" data-aos="fade-up">
+                <h2 class="gradient-text">Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item" data-tilt>
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Ethical Practice</h4>
+                        <p>We maintain the highest standards of ethical conduct in all our operations.</p>
+                    </div>
+                    <div class="value-item" data-tilt>
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Continuous Learning</h4>
+                        <p>We believe in constant improvement and staying updated with the latest security trends.</p>
+                    </div>
+                    <div class="value-item" data-tilt>
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Community First</h4>
+                        <p>We prioritize giving back to the cybersecurity community through knowledge sharing.</p>
+                    </div>
+                    <div class="value-item" data-tilt>
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Innovation</h4>
+                        <p>We strive to develop creative solutions to complex security challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="footer-branding">
+                    <div class="footer-terminal glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="terminal-title"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">whoami</span>
+                            </div>
+                            <div class="terminal-output">Elite Cybersecurity Team</div>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">status</span>
+                            </div>
+                            <div class="system-status">
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>System: Online</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>Security: Maximum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="footer-links">
+                    <h3 class="footer-heading gradient-text">Navigation</h3>
+                    <div class="footer-nav">
+                        <a href="/about-us/" class="nav-link glow-effect">./about</a>
+                        <a href="/services/" class="nav-link glow-effect">./services</a>
+                        <a href="/writeups/" class="nav-link glow-effect">./writeups</a>
+                        <a href="/contact/" class="nav-link glow-effect">./contact</a>
+                    </div>
+                </nav>
+
+                <div class="footer-social">
+                    <h3 class="footer-heading gradient-text">Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-cube"></i>
+                            <span>HackTheBox</span>
+                        </a>
+                        <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-user-secret"></i>
+                            <span>TryHackMe</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom glass-panel">
+                <span class="command">© 2025 HowToPwn. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="/assets/js/matrix-rain.js"></script>
+    <script src="/assets/js/card-hover.js"></script>
+
+    <!-- Initialize libraries -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+        
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+    </script>
+    <!-- Initialize libraries -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize vanilla-tilt
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+        
+        // Initialize typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "We are a collective of passionate cybersecurity professionals, ethical hackers, and researchers.";
+            const typingText = document.querySelector('.typing-text');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            typeWriter();
+            
+            // Animate progress bars when in view
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progress = entry.target.dataset.progress;
+                        entry.target.style.width = `${progress}%`;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            progressBars.forEach(bar => observer.observe(bar));
+        });
+    </script>
+</body>
+</html>

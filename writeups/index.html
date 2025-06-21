@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Write-ups - HowToPwn</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="HowToPwn - Detailed write-ups of our cybersecurity challenges and CTF solutions">
+    <meta property="og:title" content="Write-ups - HowToPwn">
+    <meta property="og:description" content="Detailed write-ups of our cybersecurity challenges and CTF solutions">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Three.js Background -->
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    
+    <!-- Header -->
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">HowToPwn</a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home">
+                        <i class="fas fa-home"></i>
+                        <span>/home</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/about-us/" data-text="/team">
+                        <i class="fas fa-users"></i>
+                        <span>/about</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/services/" data-text="/services">
+                        <i class="fas fa-cogs"></i>
+                        <span>/services</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/writeups/" data-text="/writeups">
+                        <i class="fas fa-file-code"></i>
+                        <span>/writeups</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/contact/" data-text="/contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>/contact</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <section class="hero-section">
+            <div class="hero-content wrapper">
+                <div class="hero-main">
+                    <h1 class="hero-title glitch-text" data-text="Write-ups & Solutions">Write-ups & Solutions</h1>
+                    <div class="hero-subtitle">Detailed documentation of our cybersecurity journey</div>
+                </div>
+                <div class="hero-terminal">
+                    <div class="terminal-window active glass-panel">
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">[*]</span>
+                                <span class="command">Accessing write-ups database...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">[+]</span>
+                                <span class="command">Categories loaded: CTF, Pentesting, Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Write-ups Grid Section -->
+        <section class="writeups-section" data-aos="fade-up">
+            <div class="wrapper">
+                <div class="section-header glass-panel">
+                    <div class="section-header-content">
+                        <h2 class="section-title gradient-text">
+                            <span class="terminal-prompt">[root@howtopwn]</span>
+                            <span class="typing">Latest Write-ups</span>
+                            <span class="cursor"></span>
+                        </h2>
+                        <div class="terminal-line">
+                            <span class="prompt">[*]</span>
+                            <span class="command">Detailed documentation of our successful exploits and findings</span>
+                        </div>
+                    </div>
+                    <div class="section-pattern"></div>
+                </div>
+                                        <div class="writeup-cards">
+                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="writeup-header">
+                                    <div class="writeup-meta">
+                                        <div class="writeup-category glow-effect">
+                                            <i class="fas fa-globe"></i>
+                                            Web Exploitation
+                                        </div>
+                                        <time class="writeup-date">
+                                            <i class="far fa-calendar-alt"></i> June 21, 2025
+                                        </time>
+                                    </div>
+                                    <div class="difficulty">
+                                        <span class="badge hard pulse-effect">Hard</span>
+                                    </div>
+                                </div>
+                                <div class="writeup-content">
+                                    <h3 class="writeup-title gradient-text">HTB Apocalypse CTF 2025: Web Challenge Walkthrough</h3>
+                                    <p class="writeup-excerpt">A detailed analysis of the web exploitation challenges we encountered during HTB Apocalypse CTF 2025...</p>
+                                </div>
+                                <footer class="writeup-footer">
+                                    <div class="tags">
+                                        <span class="tag glow-effect">Web</span>
+                                        <span class="tag glow-effect">CTF</span>
+                                        <span class="tag glow-effect">HTB</span>
+                                    </div>
+                                    <a href="/writeups/htb-apocalypse-2025-web" class="read-more gradient-text">
+                                        Read Write-up
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </footer>
+                                <div class="card-glow"></div>
+                            </article>
+
+                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="writeup-header">
+                                    <div class="writeup-meta">
+                                        <div class="writeup-category glow-effect">
+                                            <i class="fas fa-microchip"></i>
+                                            Reverse Engineering
+                                        </div>
+                                        <time class="writeup-date">
+                                            <i class="far fa-calendar-alt"></i> June 15, 2025
+                                        </time>
+                                    </div>
+                                    <div class="difficulty">
+                                        <span class="badge medium pulse-effect">Medium</span>
+                                    </div>
+                                </div>
+                                <div class="writeup-content">
+                                    <h3 class="writeup-title gradient-text">TryHackMe Hackfinity: Binary Analysis</h3>
+                                    <p class="writeup-excerpt">Our approach to solving the complex binary challenges in TryHackMe Hackfinity 2025...</p>
+                                </div>
+                                <footer class="writeup-footer">
+                                    <div class="tags">
+                                        <span class="tag glow-effect">RE</span>
+                                        <span class="tag glow-effect">Binary</span>
+                                        <span class="tag glow-effect">THM</span>
+                                    </div>
+                                    <a href="/writeups/thm-hackfinity-2025-rev" class="read-more gradient-text">
+                                        Read Write-up
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </footer>
+                                <div class="card-glow"></div>
+                            </article>
+                        </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="footer-branding">
+                    <div class="footer-terminal glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="terminal-title"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">whoami</span>
+                            </div>
+                            <div class="terminal-output">Elite Cybersecurity Team</div>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">status</span>
+                            </div>
+                            <div class="system-status">
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>System: Online</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>Security: Maximum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="footer-links">
+                    <h3 class="footer-heading gradient-text">Navigation</h3>
+                    <div class="footer-nav">
+                        <a href="/about-us/" class="nav-link glow-effect">./about</a>
+                        <a href="/services/" class="nav-link glow-effect">./services</a>
+                        <a href="/writeups/" class="nav-link glow-effect">./writeups</a>
+                        <a href="/contact/" class="nav-link glow-effect">./contact</a>
+                    </div>
+                </nav>
+
+                <div class="footer-social">
+                    <h3 class="footer-heading gradient-text">Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-cube"></i>
+                            <span>HackTheBox</span>
+                        </a>
+                        <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-user-secret"></i>
+                            <span>TryHackMe</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom glass-panel">
+                <span class="command">© 2025 HowToPwn. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="/assets/js/matrix-rain.js"></script>
+    <script src="/assets/js/card-hover.js"></script>
+
+    <!-- Initialize libraries -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+        
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+    </script>
+</body>
+</html>
