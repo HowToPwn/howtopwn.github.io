@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search - HowToPwn</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Search through HowToPwn's blog posts and CTF writeups">
+    <meta property="og:title" content="Search - HowToPwn">
+    <meta property="og:description" content="Search through HowToPwn's blog posts and CTF writeups">
+    <meta property="og:type" content="website">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Three.js Background -->
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    
+    <!-- Header -->
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">
+                            <span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home">
+                        <i class="fas fa-home"></i>
+                        <span>/home</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/page/team/" data-text="/team">
+                        <i class="fas fa-users"></i>
+                        <span>/team</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/page/services/" data-text="/services">
+                        <i class="fas fa-cogs"></i>
+                        <span>/services</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/page/writeups/" data-text="/writeups">
+                        <i class="fas fa-file-code"></i>
+                        <span>/writeups</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/page/contact/" data-text="/contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>/contact</span>
+                    </a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Open navigation menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="wrapper">
+                <div class="search-header glass-panel" data-aos="fade-up">
+                    <div class="search-header-content">
+                        <h1 class="search-title gradient-text">
+                            <span class="terminal-prompt">$</span>
+                            <span class="typing">Search Database</span>
+                            <span class="cursor">█</span>
+                        </h1>
+                        <div class="terminal-line">
+                            <span class="prompt">[*]</span>
+                            <span class="command">Search through our blog posts and CTF writeups</span>
+                        </div>
+                    </div>
+                    <div class="search-pattern"></div>
+                </div>
+
+                <!-- Search Interface -->
+                <div class="search-interface glass-panel" data-aos="fade-up" data-aos-delay="200">
+                    <div class="search-form">
+                        <div class="search-input-wrapper">
+                            <div class="search-icon pulse-effect">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="search-input" 
+                                class="search-input" 
+                                placeholder="Enter search query..."
+                                autocomplete="off"
+                            >
+                            <div class="search-actions">
+                                <button id="search-btn" class="search-button glow-effect">
+                                    <i class="fas fa-terminal"></i>
+                                    <span>Search</span>
+                                </button>
+                                <button id="refresh-btn" class="refresh-button glow-effect">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Refresh Files</span>
+                                </button>
+                                <button id="clear-btn" class="clear-button glow-effect">
+                                    <i class="fas fa-times"></i>
+                                    <span>Clear</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Filters -->
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label class="filter-label gradient-text">
+                                    <i class="fas fa-filter"></i>
+                                    Content Type
+                                </label>
+                                <div class="filter-options">
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-posts" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-newspaper"></i>
+                                        <span>Blog Posts</span>
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-writeups" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-file-code"></i>
+                                        <span>CTF Writeups</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label class="filter-label gradient-text">
+                                    <i class="fas fa-tags"></i>
+                                    Categories
+                                </label>
+                                <div class="filter-options">
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-ctf" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-flag"></i>
+                                        <span>CTF</span>
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-web" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-globe"></i>
+                                        <span>Web</span>
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-re" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-microchip"></i>
+                                        <span>Reverse Engineering</span>
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" id="filter-crypto" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-key"></i>
+                                        <span>Cryptography</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Results -->
+                <div id="search-results" class="search-results" data-aos="fade-up" data-aos-delay="400">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+
+                <!-- No Results State -->
+                <div id="no-results" class="no-results glass-panel" style="display: none;" data-aos="fade-up">
+                    <div class="no-results-content">
+                        <div class="no-results-icon pulse-effect">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="no-results-title gradient-text">No Results Found</h3>
+                        <p class="no-results-message">
+                            No content matches your search criteria. Try adjusting your search terms or filters.
+                        </p>
+                        <div class="no-results-suggestions">
+                            <h4 class="suggestions-title">Suggestions:</h4>
+                            <ul class="suggestions-list">
+                                <li>Check your spelling</li>
+                                <li>Try more general keywords</li>
+                                <li>Remove some filters</li>
+                                <li>Browse all content</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="search-loading" class="search-loading glass-panel" style="display: none;" data-aos="fade-up">
+                    <div class="loading-content">
+                        <div class="loading-spinner pulse-effect">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <h3 class="loading-title gradient-text">Searching...</h3>
+                        <div class="loading-animation">
+                            <div class="loading-bar">
+                                <div class="loading-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="footer-branding">
+                    <div class="footer-terminal glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="terminal-title">
+                                <i class="fas fa-terminal"></i>
+                                <span>HowToPwn_Terminal</span>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <!-- Content will be populated by JavaScript typing effect -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-sections">
+                    <nav class="footer-links">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-sitemap"></i>
+                            Navigation
+                        </h3>
+                        <div class="footer-nav">
+                            <a href="/page/team/" class="nav-link glow-effect">
+                                <i class="fas fa-users"></i>
+                                <span>./team</span>
+                            </a>
+                            <a href="/page/services/" class="nav-link glow-effect">
+                                <i class="fas fa-cogs"></i>
+                                <span>./services</span>
+                            </a>
+                            <a href="/page/writeups/" class="nav-link glow-effect">
+                                <i class="fas fa-file-code"></i>
+                                <span>./writeups</span>
+                            </a>
+                            <a href="/page/contact/" class="nav-link glow-effect">
+                                <i class="fas fa-envelope"></i>
+                                <span>./contact</span>
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div class="footer-social">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-network-wired"></i>
+                            Connect
+                        </h3>
+                        <div class="social-links">
+                            <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fas fa-cube"></i>
+                                <span>HackTheBox</span>
+                            </a>
+                            <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                                <i class="fas fa-user-secret"></i>
+                                <span>TryHackMe</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-achievements">
+                        <h3 class="footer-heading gradient-text">
+                            <i class="fas fa-trophy"></i>
+                            Achievements
+                        </h3>
+                        <div class="achievement-list">
+                            <div class="achievement-item">
+                                <span class="achievement-icon">🏆</span>
+                                <span class="achievement-text">HTB Apocalypse #54</span>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-icon">🥇</span>
+                                <span class="achievement-text">HTB Global #80</span>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-icon">⭐</span>
+                                <span class="achievement-text">THM Hackfinity #80</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom glass-panel">
+                <div class="footer-bottom-content">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo "© 2025 HowToPwn. All rights reserved."</span>
+                    </div>
+                    <div class="footer-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"The only secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room with armed guards."</span>
+                        <i class="fas fa-quote-right"></i>
+                        <span class="quote-author">- Kevin Mitnick</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="/assets/js/matrix-rain.js"></script>
+    <script src="/assets/js/search.js"></script>
+
+    <!-- Initialize libraries -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html> 
