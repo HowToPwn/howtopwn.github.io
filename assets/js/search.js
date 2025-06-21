@@ -58,72 +58,58 @@ class AdvancedSearchEngine {
     }
     
     async testFetch() {
-        const markdownFiles = await this.discoverMarkdownFiles();
-        
-        for (const file of markdownFiles) {
-            try {
-                const response = await fetch(file.path);
+        await this.loadFromIndex();
+    }
+    
+    async loadFromIndex() {
+        try {
+            const response = await fetch('/assets/data/search-index.json');
+            if (response.ok) {
+                const indexData = await response.json();
                 
-                if (response.ok) {
-                    const content = await response.text();
-                    
-                    const filename = file.path.split('/').pop();
-                    const parsedData = this.parseMarkdownFile(content, filename, file.type);
-                    if (parsedData) {
-                        this.searchData.push(parsedData);
-                    }
+                for (const fileInfo of indexData.files) {
+                    await this.loadSingleFile(fileInfo.path, fileInfo.type);
                 }
-            } catch (error) {
-                console.error(`Error loading ${file.path}:`, error);
+                
+                this.showMessage(`Loaded ${this.searchData.length} files from index`, 'success');
+            } else {
+                this.loadFallbackFiles();
             }
+        } catch (error) {
+            console.error('Error loading search index:', error);
+            this.loadFallbackFiles();
+        }
+    }
+    
+    loadFallbackFiles() {
+        const fallbackFiles = [
+            { path: '/_posts/2025-06-21-sample-post.md', type: 'post' },
+            { path: '/_writeups/2025-06-15-thm-hackfinity-rev.md', type: 'writeup' }
+        ];
+        
+        for (const fileInfo of fallbackFiles) {
+            this.loadSingleFile(fileInfo.path, fileInfo.type);
+        }
+    }
+    
+    async loadSingleFile(filePath, type) {
+        try {
+            const response = await fetch(filePath);
+            if (response.ok) {
+                const content = await response.text();
+                const filename = filePath.split('/').pop();
+                const parsedData = this.parseMarkdownFile(content, filename, type);
+                if (parsedData) {
+                    this.searchData.push(parsedData);
+                }
+            }
+        } catch (error) {
+            console.error(`Error loading ${filePath}:`, error);
         }
     }
     
     async discoverMarkdownFiles() {
-        const markdownFiles = [];
-        
-        const directories = [
-            { path: '/_posts/', type: 'post' },
-            { path: '/_writeups/', type: 'writeup' }
-        ];
-        
-        for (const dir of directories) {
-            try {
-                const response = await fetch(dir.path);
-                
-                if (response.ok) {
-                    const content = await response.text();
-                    const files = this.parseDirectoryListing(content, dir.path, dir.type);
-                    markdownFiles.push(...files);
-                }
-            } catch (error) {
-                console.error(`Error fetching directory listing for ${dir.path}:`, error);
-            }
-        }
-        
-        return markdownFiles;
-    }
-    
-    parseDirectoryListing(content, directory, type) {
-        const files = [];
-        
-        const linkMatches = content.match(/href="([^"]*\.md)"/g);
-        
-        if (linkMatches) {
-            for (const match of linkMatches) {
-                const filename = match.match(/href="([^"]*\.md)"/)[1];
-                
-                if (filename && !filename.startsWith('http') && filename !== '../') {
-                    const filePath = `${directory}${filename}`;
-                    files.push({
-                        path: filePath,
-                        type: type
-                    });
-                }
-            }
-        }
-        
-        return files;
+        return [];
     }
     
     parseMarkdownFile(content, filename, type) {
@@ -633,7 +619,7 @@ class AdvancedSearchEngine {
             this.currentResults = [];
             this.clearResults();
             
-            await this.testFetch();
+            await this.loadFromIndex();
             
             this.showMessage(`Successfully loaded ${this.searchData.length} markdown files!`, 'success');
             
