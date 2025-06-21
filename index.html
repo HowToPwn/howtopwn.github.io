@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HowToPwn - Elite Cybersecurity Team</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="HowToPwn - Rising force in cybersecurity, specializing in CTF competitions and security research">
+    <meta property="og:title" content="HowToPwn - Elite Cybersecurity Team">
+    <meta property="og:description" content="Rising force in cybersecurity, specializing in CTF competitions and security research">
+    <meta property="og:type" content="website">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Three.js Background -->
+    <canvas id="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    
+    <!-- Header -->
+    <header class="site-header glass-panel">
+        <div class="wrapper">
+            <div class="header-left">
+                <a class="site-title gradient-text" rel="author" href="/">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">
+                            <span class="font-mono">root@</span>HowToPwn<span class="font-mono">:~#</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <div class="nav-items">
+                    <a class="nav-item glitch-hover" href="/" data-text="/home">
+                        <i class="fas fa-home"></i>
+                        <span>/home</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/about/" data-text="/team">
+                        <i class="fas fa-users"></i>
+                        <span>/team</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/services/" data-text="/services">
+                        <i class="fas fa-cogs"></i>
+                        <span>/services</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/writeups/" data-text="/writeups">
+                        <i class="fas fa-file-code"></i>
+                        <span>/writeups</span>
+                    </a>
+                    <a class="nav-item glitch-hover" href="/contact/" data-text="/contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>/contact</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="grid-pattern"></div>
+            <div class="matrix-rain"></div>
+            <div class="cyber-scanner">
+                <div class="scan-line"></div>
+                <div class="target-box"></div>
+            </div>
+            
+            <div class="hero-content wrapper">
+                <div class="hero-terminal">
+                    <div class="terminal-window active glass-panel">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="terminal-title">HowToPwn_Terminal</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="line">
+                                <span class="prompt">root@HowToPwn:~#</span>
+                                <span class="command typing">./initialize_system.sh</span>
+                            </div>
+                            <div class="line">
+                                <span class="output">System initialized... Loading core modules...</span>
+                            </div>
+                            <div class="line typing">
+                                <span class="prompt">root@HowToPwn:~#</span>
+                                <span class="command">./deploy_mission.sh --target="cybersecurity_excellence"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-main">
+                    <h1 class="hero-title glitch-text" data-text="Hack. Learn. Conquer.">Hack. Learn. Conquer.</h1>
+                    <div class="hero-subtitle-wrapper">
+                        <p class="hero-subtitle">
+                            <span class="typing-text"></span>
+                            <span class="cursor">█</span>
+                        </p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                            <div class="stat-icon pulse-effect">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-value gradient-text">#54</div>
+                            <div class="stat-label">HTB Apocalypse</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                            <div class="stat-icon pulse-effect">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="stat-value gradient-text">#80</div>
+                            <div class="stat-label">HTB Global</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item glass-panel" data-aos="fade-up" data-aos-delay="300" data-tilt>
+                            <div class="stat-icon pulse-effect">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-value gradient-text">#80</div>
+                            <div class="stat-label">THM Hackfinity</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-container">
+                        <a href="/services/" class="cta-button primary glass-panel" data-tilt>
+                            <span class="button-text">./start_mission.sh</span>
+                            <span class="button-icon">
+                                <i class="fas fa-terminal"></i>
+                            </span>
+                        </a>
+                        <a href="/contact/" class="cta-button secondary glass-panel" data-tilt>
+                            <span class="button-text">./connect.sh</span>
+                            <span class="button-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities Section -->
+        <section class="recent-activities" data-aos="fade-up">
+            <div class="wrapper">
+                <div class="section-header glass-panel">
+                    <div class="section-header-content">
+                        <h2 class="section-title gradient-text">
+                            <span class="terminal-prompt">$</span>
+                            <span class="typing">Recent Activities</span>
+                            <span class="cursor">█</span>
+                        </h2>
+                        <div class="terminal-line">
+                            <span class="prompt">[*]</span>
+                            <span class="command">Latest achievements and write-ups from our journey</span>
+                        </div>
+                    </div>
+                    <div class="section-pattern"></div>
+                </div>
+
+                <div class="activities-grid">
+                    <!-- Achievement Cards -->
+                    <div class="activity-column achievements-list" data-aos="fade-right">
+                        <div class="column-header glass-panel">
+                            <div class="icon-wrapper pulse-effect">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="column-title gradient-text">Notable Achievements</h3>
+                            <div class="header-pattern"></div>
+                        </div>
+                        
+                        <div class="achievement-cards">
+                            <div class="achievement-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="achievement-icon glow-effect">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <div class="achievement-header">
+                                        <h4 class="gradient-text">HackTheBox Apocalypse</h4>
+                                        <span class="rank pulse-effect">#54</span>
+                                    </div>
+                                    <div class="achievement-meta">
+                                        <span class="date"><i class="far fa-calendar-alt"></i> March 2025</span>
+                                        <span class="category"><i class="fas fa-flag"></i> CTF Competition</span>
+                                    </div>
+                                    <div class="achievement-progress">
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar gradient-progress" data-progress="85">
+                                                <span class="progress-text">85%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-glow"></div>
+                            </div>
+
+                            <div class="achievement-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="achievement-icon glow-effect">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <div class="achievement-header">
+                                        <h4 class="gradient-text">HTB Global Rankings</h4>
+                                        <span class="rank pulse-effect">#80</span>
+                                    </div>
+                                    <div class="achievement-meta">
+                                        <span class="date"><i class="far fa-calendar-alt"></i> June 2025</span>
+                                        <span class="category"><i class="fas fa-chart-line"></i> Platform Ranking</span>
+                                    </div>
+                                    <div class="achievement-progress">
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar gradient-progress" data-progress="75">
+                                                <span class="progress-text">75%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Write-ups -->
+                    <div class="activity-column writeups-list" data-aos="fade-left">
+                        <div class="column-header glass-panel">
+                            <div class="icon-wrapper pulse-effect">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                            <h3 class="column-title gradient-text">Latest Write-ups</h3>
+                            <div class="header-pattern"></div>
+                        </div>
+                        
+                        <div class="writeup-cards">
+                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="writeup-header">
+                                    <div class="writeup-meta">
+                                        <div class="writeup-category glow-effect">
+                                            <i class="fas fa-globe"></i>
+                                            Web Exploitation
+                                        </div>
+                                        <time class="writeup-date">
+                                            <i class="far fa-calendar-alt"></i> June 21, 2025
+                                        </time>
+                                    </div>
+                                    <div class="difficulty">
+                                        <span class="badge hard pulse-effect">Hard</span>
+                                    </div>
+                                </div>
+                                <div class="writeup-content">
+                                    <h3 class="writeup-title gradient-text">HTB Apocalypse CTF 2025: Web Challenge Walkthrough</h3>
+                                    <p class="writeup-excerpt">A detailed analysis of the web exploitation challenges we encountered during HTB Apocalypse CTF 2025...</p>
+                                </div>
+                                <footer class="writeup-footer">
+                                    <div class="tags">
+                                        <span class="tag glow-effect">Web</span>
+                                        <span class="tag glow-effect">CTF</span>
+                                        <span class="tag glow-effect">HTB</span>
+                                    </div>
+                                    <a href="/writeups/htb-apocalypse-2025-web" class="read-more gradient-text">
+                                        Read Write-up
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </footer>
+                                <div class="card-glow"></div>
+                            </article>
+
+                            <article class="writeup-card glass-card" data-tilt data-tilt-max="5">
+                                <div class="writeup-header">
+                                    <div class="writeup-meta">
+                                        <div class="writeup-category glow-effect">
+                                            <i class="fas fa-microchip"></i>
+                                            Reverse Engineering
+                                        </div>
+                                        <time class="writeup-date">
+                                            <i class="far fa-calendar-alt"></i> June 15, 2025
+                                        </time>
+                                    </div>
+                                    <div class="difficulty">
+                                        <span class="badge medium pulse-effect">Medium</span>
+                                    </div>
+                                </div>
+                                <div class="writeup-content">
+                                    <h3 class="writeup-title gradient-text">TryHackMe Hackfinity: Binary Analysis</h3>
+                                    <p class="writeup-excerpt">Our approach to solving the complex binary challenges in TryHackMe Hackfinity 2025...</p>
+                                </div>
+                                <footer class="writeup-footer">
+                                    <div class="tags">
+                                        <span class="tag glow-effect">RE</span>
+                                        <span class="tag glow-effect">Binary</span>
+                                        <span class="tag glow-effect">THM</span>
+                                    </div>
+                                    <a href="/writeups/thm-hackfinity-2025-rev" class="read-more gradient-text">
+                                        Read Write-up
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </footer>
+                                <div class="card-glow"></div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer glass-panel">
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="footer-branding">
+                    <div class="footer-terminal glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="terminal-title">HowToPwn_Terminal</span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">whoami</span>
+                            </div>
+                            <div class="terminal-output">Elite Cybersecurity Team</div>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">status</span>
+                            </div>
+                            <div class="system-status">
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>System: Online</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-dot active pulse-effect"></span>
+                                    <span>Security: Maximum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="footer-links">
+                    <h3 class="footer-heading gradient-text">Navigation</h3>
+                    <div class="footer-nav">
+                        <a href="/about/" class="nav-link glow-effect">./team</a>
+                        <a href="/services/" class="nav-link glow-effect">./services</a>
+                        <a href="/writeups/" class="nav-link glow-effect">./writeups</a>
+                        <a href="/contact/" class="nav-link glow-effect">./contact</a>
+                    </div>
+                </nav>
+
+                <div class="footer-social">
+                    <h3 class="footer-heading gradient-text">Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-cube"></i>
+                            <span>HackTheBox</span>
+                        </a>
+                        <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
+                            <i class="fas fa-user-secret"></i>
+                            <span>TryHackMe</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom glass-panel">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="command">echo "© 2025 HowToPwn. All rights reserved."</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script type="module" src="/assets/js/3d-background.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="/assets/js/matrix-rain.js"></script>
+    <script src="/assets/js/card-hover.js"></script>
+
+    <!-- Initialize libraries -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize vanilla-tilt
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+        
+        // Initialize typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "Established March 2025 | Rising Force in Cybersecurity";
+            const typingText = document.querySelector('.typing-text');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            typeWriter();
+            
+            // Animate progress bars when in view
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progress = entry.target.dataset.progress;
+                        entry.target.style.width = `${progress}%`;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            progressBars.forEach(bar => observer.observe(bar));
+        });
+    </script>
+</body>
+</html>
