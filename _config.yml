@@ -1,0 +1,51 @@
+# Jekyll configuration for GitHub Pages
+title: HowToPwn
+description: Cybersecurity learning platform
+baseurl: ""
+url: "https://howtopwn.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
+  writeups:
+    output: true
+    permalink: /writeups/:title/
+
+# Include files
+include:
+  - _posts
+  - _writeups
+  - assets
+  - page
+
+# Exclude files
+exclude:
+  - node_modules
+  - .git
+  - README.md
+  - update-index.js
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Defaults
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "_writeups"
+      type: "writeups"
+    values:
+      layout: "writeup" 
