@@ -14,8 +14,11 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/terminal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Add Fira Code font for terminal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
     
     <!-- GSAP for smooth animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -70,28 +73,24 @@
                 <div class="target-box"></div>
             </div>
             
-            <div class="hero-content wrapper">
-                <div class="hero-terminal">
+            <div class="hero-content wrapper">                <div class="hero-terminal">
                     <div class="terminal-window active glass-panel">
                         <div class="terminal-header">
                             <div class="terminal-buttons">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <span class="close"></span>
+                                <span class="minimize"></span>
+                                <span class="maximize"></span>
                             </div>
-                            <div class="terminal-title"></div>
+                            <div class="terminal-title">root@HowToPwn: ~/mission</div>
                         </div>
-                        <div class="terminal-body">
-                            <div class="line">
-                                <span class="prompt">root@HowToPwn:~#</span>
-                                <span class="command typing">./initialize_system.sh</span>
+                        <div class="terminal-body" id="terminalBody">
+                            <div class="terminal-content">
+                                <!-- Terminal content will be dynamically populated -->
                             </div>
-                            <div class="line">
-                                <span class="output">System initialized... Loading core modules...</span>
-                            </div>
-                            <div class="line typing">
+                            <div class="terminal-input-line">
                                 <span class="prompt">root@HowToPwn:~#</span>
-                                <span class="command">./deploy_mission.sh --target="cybersecurity_excellence"</span>
+                                <span class="input" contenteditable="true" id="terminalInput"></span>
+                                <span class="cursor"></span>
                             </div>
                         </div>
                     </div>
@@ -159,7 +158,8 @@
 
         <!-- Recent Activities Section -->
         <section class="recent-activities" data-aos="fade-up">
-            <div class="wrapper">                <div class="section-header glass-panel" data-aos="fade-up">
+            <div class="wrapper">                
+                <div class="section-header glass-panel" data-aos="fade-up">
                     <div class="section-header-content">
                         <h2 class="section-title gradient-text">
                             <span class="terminal-prompt">[root@howtopwn]</span>
@@ -444,6 +444,7 @@
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/matrix-rain.js"></script>
     <script src="/assets/js/card-hover.js"></script>
+    <script src="/assets/js/terminal.js"></script>
 
     <!-- Initialize libraries -->
     <script>
