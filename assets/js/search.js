@@ -63,64 +63,60 @@ class AdvancedSearchEngine {
     
     async loadFromIndex() {
         try {
-            const response = await fetch('/assets/data/search-index.json');
-            if (response.ok) {
-                const indexData = await response.json();
-                
-                for (const fileInfo of indexData.files) {
-                    await this.loadSingleFile(fileInfo.path, fileInfo.type);
-                }
-                
-                this.showMessage(`Loaded ${this.searchData.length} files from index`, 'success');
-            } else {
-                this.loadFallbackFiles();
-            }
+            // Instead of using JSON index, we'll discover files dynamically
+            await this.discoverJekyllFiles();
+            this.showMessage(`Loaded ${this.searchData.length} files from Jekyll`, 'success');
         } catch (error) {
-            console.error('Error loading search index:', error);
+            console.error('Error loading files:', error);
             this.loadFallbackFiles();
         }
     }
     
-    loadFallbackFiles() {
-        const fallbackFiles = [
-            { path: '/_posts/2025-06-21-sample-post.md', type: 'post' },
-            { path: '/_writeups/2025-06-15-thm-hackfinity-rev.md', type: 'writeup' }
+    async discoverJekyllFiles() {
+        // Define the Jekyll URLs based on our _config.yml structure
+        const jekyllUrls = [
+            // Posts
+            '/posts/ctf-basics/',
+            '/posts/web-security-fundamentals/',
+            '/posts/reverse-engineering-intro/',
+            '/posts/sample-post/',
+            // Writeups
+            '/writeups/thm-crypto-challenge/',
+            '/writeups/thm-hackfinity-rev/'
         ];
         
-        for (const fileInfo of fallbackFiles) {
-            this.loadSingleFile(fileInfo.path, fileInfo.type);
+        for (const url of jekyllUrls) {
+            await this.loadJekyllFile(url);
         }
     }
     
-    async loadSingleFile(filePath, type) {
+    async loadJekyllFile(url) {
         try {
-            // For GitHub Pages, we need to fetch the built HTML files
-            // Convert markdown paths to HTML paths
-            let htmlPath = filePath;
-            if (filePath.includes('.md')) {
-                htmlPath = filePath.replace('.md', '.html');
-            }
-            
-            // Try to fetch the HTML file first
-            let response = await fetch(htmlPath);
-            
-            // If HTML file doesn't exist, try the original markdown path (for local development)
-            if (!response.ok && filePath.includes('.md')) {
-                response = await fetch(filePath);
-            }
-            
+            const response = await fetch(url);
             if (response.ok) {
                 const content = await response.text();
-                const filename = filePath.split('/').pop();
+                const type = url.includes('/posts/') ? 'post' : 'writeup';
+                const filename = url.split('/').filter(Boolean).pop() + '.html';
                 const parsedData = this.parseMarkdownFile(content, filename, type);
                 if (parsedData) {
                     this.searchData.push(parsedData);
                 }
             } else {
-                console.warn(`Failed to load ${htmlPath}: ${response.status}`);
+                console.warn(`Failed to load ${url}: ${response.status}`);
             }
         } catch (error) {
-            console.error(`Error loading ${filePath}:`, error);
+            console.error(`Error loading ${url}:`, error);
+        }
+    }
+    
+    loadFallbackFiles() {
+        const fallbackUrls = [
+            '/posts/sample-post/',
+            '/writeups/thm-hackfinity-rev/'
+        ];
+        
+        for (const url of fallbackUrls) {
+            this.loadJekyllFile(url);
         }
     }
     
@@ -657,9 +653,9 @@ class AdvancedSearchEngine {
             this.currentResults = [];
             this.clearResults();
             
-            await this.loadFromIndex();
+            await this.discoverJekyllFiles();
             
-            this.showMessage(`Successfully loaded ${this.searchData.length} markdown files!`, 'success');
+            this.showMessage(`Successfully loaded ${this.searchData.length} files from Jekyll!`, 'success');
             
         } catch (error) {
             console.error('Refresh failed:', error);
