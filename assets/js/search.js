@@ -94,7 +94,21 @@ class AdvancedSearchEngine {
     
     async loadSingleFile(filePath, type) {
         try {
-            const response = await fetch(filePath);
+            // For GitHub Pages, we need to fetch the built HTML files
+            // Convert markdown paths to HTML paths
+            let htmlPath = filePath;
+            if (filePath.includes('.md')) {
+                htmlPath = filePath.replace('.md', '.html');
+            }
+            
+            // Try to fetch the HTML file first
+            let response = await fetch(htmlPath);
+            
+            // If HTML file doesn't exist, try the original markdown path (for local development)
+            if (!response.ok && filePath.includes('.md')) {
+                response = await fetch(filePath);
+            }
+            
             if (response.ok) {
                 const content = await response.text();
                 const filename = filePath.split('/').pop();
@@ -102,6 +116,8 @@ class AdvancedSearchEngine {
                 if (parsedData) {
                     this.searchData.push(parsedData);
                 }
+            } else {
+                console.warn(`Failed to load ${htmlPath}: ${response.status}`);
             }
         } catch (error) {
             console.error(`Error loading ${filePath}:`, error);
@@ -117,15 +133,37 @@ class AdvancedSearchEngine {
             let frontmatter = {};
             let markdownContent = content;
             
-            const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
-            
-            if (frontmatterMatch) {
-                frontmatter = this.parseYaml(frontmatterMatch[1]);
-                markdownContent = frontmatterMatch[2];
-            } else {
-                const titleMatch = content.match(/^#\s+(.+)$/m);
+            // Check if this is HTML content (from Jekyll build)
+            if (content.includes('<html') || content.includes('<!DOCTYPE')) {
+                // Extract content from HTML
+                const bodyMatch = content.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+                if (bodyMatch) {
+                    markdownContent = this.extractTextFromHtml(bodyMatch[1]);
+                }
+                
+                // Try to extract frontmatter from HTML meta tags or data attributes
+                const titleMatch = content.match(/<title[^>]*>([^<]+)<\/title>/i);
                 if (titleMatch) {
-                    frontmatter.title = titleMatch[1].trim();
+                    frontmatter.title = titleMatch[1].replace(' - HowToPwn', '').trim();
+                }
+                
+                // Extract date from meta tags if available
+                const dateMatch = content.match(/<meta[^>]*name="date"[^>]*content="([^"]+)"/i);
+                if (dateMatch) {
+                    frontmatter.date = dateMatch[1];
+                }
+            } else {
+                // Original markdown parsing
+                const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+                
+                if (frontmatterMatch) {
+                    frontmatter = this.parseYaml(frontmatterMatch[1]);
+                    markdownContent = frontmatterMatch[2];
+                } else {
+                    const titleMatch = content.match(/^#\s+(.+)$/m);
+                    if (titleMatch) {
+                        frontmatter.title = titleMatch[1].trim();
+                    }
                 }
             }
             
@@ -133,7 +171,7 @@ class AdvancedSearchEngine {
             const excerpt = frontmatter.excerpt || this.extractExcerpt(markdownContent);
             
             const result = {
-                id: filename.replace('.md', ''),
+                id: filename.replace('.md', '').replace('.html', ''),
                 type: type,
                 title: frontmatter.title || this.generateTitleFromFilename(filename),
                 excerpt: excerpt,
@@ -262,11 +300,11 @@ class AdvancedSearchEngine {
     }
     
     generateUrl(filename, type) {
-        const baseName = filename.replace('.md', '');
+        const baseName = filename.replace('.md', '').replace('.html', '');
         if (type === 'post') {
-            return `/posts/${baseName}`;
+            return `/posts/${baseName}/`;
         } else {
-            return `/writeups/${baseName}`;
+            return `/writeups/${baseName}/`;
         }
     }
     
@@ -648,6 +686,35 @@ class AdvancedSearchEngine {
                 message.parentNode.removeChild(message);
             }
         }, 3000);
+    }
+    
+    extractTextFromHtml(htmlContent) {
+        // Remove script and style tags
+        let text = htmlContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+        text = text.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
+        
+        // Remove HTML tags but keep line breaks
+        text = text.replace(/<br\s*\/?>/gi, '\n');
+        text = text.replace(/<\/p>/gi, '\n');
+        text = text.replace(/<\/div>/gi, '\n');
+        text = text.replace(/<\/h[1-6]>/gi, '\n');
+        
+        // Remove remaining HTML tags
+        text = text.replace(/<[^>]*>/g, '');
+        
+        // Decode HTML entities
+        text = text.replace(/&amp;/g, '&');
+        text = text.replace(/&lt;/g, '<');
+        text = text.replace(/&gt;/g, '>');
+        text = text.replace(/&quot;/g, '"');
+        text = text.replace(/&#39;/g, "'");
+        text = text.replace(/&nbsp;/g, ' ');
+        
+        // Clean up whitespace
+        text = text.replace(/\n\s*\n/g, '\n\n');
+        text = text.trim();
+        
+        return text;
     }
 }
 
