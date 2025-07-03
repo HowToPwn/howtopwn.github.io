@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,189 +7,677 @@
     <title>About Us - HowToPwn</title>
     
     <!-- Meta tags -->
-    <meta name="description" content="HowToPwn - Professional cybersecurity services and consulting">
+    <meta name="description" content="Meet the HowToPwn team - Elite cybersecurity professionals">
     <meta property="og:title" content="Services - HowToPwn">
     <meta property="og:description" content="Professional cybersecurity services and consulting">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'cyber': {
+                            50: '#f0fdff',
+                            100: '#ccf7fe',
+                            200: '#99eefd',
+                            300: '#5ddefa',
+                            400: '#00e5ff',
+                            500: '#00b8d4',
+                            600: '#0097a7',
+                            700: '#00838f',
+                            800: '#006064',
+                            900: '#004d40',
+                        },
+                        'dark': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(0, 229, 255, 0.5)' },
+                            '100%': { boxShadow: '0 0 30px rgba(0, 229, 255, 0.8)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-light {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00e5ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.2);
+        }
+        
+        /* Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+            .hero-mobile {
+                padding-top: 5rem;
+                padding-bottom: 2rem;
+            }
+            
+            .stats-mobile {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .terminal-mobile {
+                font-size: 0.8rem;
+                padding: 0.75rem;
+                height: 16rem;
+            }
+            
+            .card-mobile {
+                padding: 0.75rem;
+            }
+            
+            .text-mobile {
+                font-size: 0.8rem;
+            }
+            
+            .glass {
+                background: rgba(15, 23, 42, 0.9);
+                backdrop-filter: blur(12px);
+            }
+            
+            .hero-content-mobile {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .mobile-nav-spacing {
+                padding: 0.5rem 0;
+            }
+            
+            .mobile-button-stack {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .mobile-button-stack button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .mobile-terminal-header {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .mobile-section-padding {
+                padding: 2rem 0;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-title-mobile {
+                font-size: 2.25rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+            
+            .terminal-mobile-small {
+                font-size: 0.7rem;
+                padding: 0.5rem;
+                height: 14rem;
+            }
+            
+            .mobile-nav-icon {
+                font-size: 1.25rem;
+                padding: 0.75rem;
+            }
+            
+            .mobile-card-compact {
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .mobile-text-compact {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+            
+            .mobile-grid-single {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .mobile-terminal-input {
+                font-size: 0.7rem;
+                padding: 0.25rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-mobile {
+                padding-top: 4rem;
+                padding-bottom: 1.5rem;
+            }
+            
+            .hero-title-mobile {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .terminal-mobile-small {
+                height: 12rem;
+                font-size: 0.65rem;
+            }
+            
+            .mobile-ultra-compact {
+                padding: 0.25rem;
+                font-size: 0.7rem;
+            }
+            
+            .mobile-spacing-tight {
+                gap: 0.5rem;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Three.js Background -->
-    <canvas id="background-canvas"></canvas>
-    <div class="gradient-overlay"></div>
+<body class="bg-gradient-to-br from-dark-950 via-dark-900 to-dark-800 text-white min-h-screen overflow-x-hidden">
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 cyber-grid opacity-20 pointer-events-none"></div>
     
     <!-- Header -->
-    <header class="site-header glass-panel">
-        <div class="wrapper">
-            <div class="header-left">
-                <a class="site-title gradient-text" rel="author" href="/">HowToPwn</a>
-            </div>
-            <nav class="site-nav">
-                <div class="nav-items">
-                    <a class="nav-item glitch-hover" href="/" data-text="/home">
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-cyber-400 to-cyber-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-terminal text-white text-xs sm:text-sm lg:text-lg"></i>
+                    </div>
+                    <div class="font-mono font-bold text-base sm:text-lg lg:text-xl gradient-text">
+                        HowToPwn
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/" class="nav-link font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-2">
                         <i class="fas fa-home"></i>
                         <span>/home</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/about-us/" data-text="/team">
+                    <a href="/about-us/" class="nav-link font-mono text-sm text-cyber-400 transition-colors duration-300 flex items-center space-x-2">
                         <i class="fas fa-users"></i>
                         <span>/about</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/services/" data-text="/services">
+                    <a href="/services" class="nav-link font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-2">
                         <i class="fas fa-cogs"></i>
                         <span>/services</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/writeups/" data-text="/writeups">
+                    <a href="/writeups" class="nav-link font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-2">
                         <i class="fas fa-file-code"></i>
                         <span>/writeups</span>
                     </a>
-                    <a class="nav-item glitch-hover" href="/contact/" data-text="/contact">
+                    <a href="/contact" class="nav-link font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-2">
                         <i class="fas fa-envelope"></i>
                         <span>/contact</span>
                     </a>
                 </div>
-            </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 sm:p-3 rounded-lg glass-light hover-glow transition-all duration-300 mobile-nav-icon" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-cyber-400 text-sm sm:text-base"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="lg:hidden glass-light border-t border-white/10 hidden" id="mobile-menu">
+            <div class="px-4 py-3 sm:py-4 space-y-1 sm:space-y-2 mobile-nav-spacing">
+                <a href="/" class="block font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-3 py-3 px-2 rounded-lg hover:bg-white/5 mobile-nav-spacing">
+                    <i class="fas fa-home w-5 text-cyber-400"></i>
+                    <span>/home</span>
+                </a>
+                <a href="/about-us/" class="block font-mono text-sm text-cyber-400 transition-colors duration-300 flex items-center space-x-3 py-3 px-2 rounded-lg bg-white/10 mobile-nav-spacing">
+                    <i class="fas fa-users w-5 text-cyber-400"></i>
+                    <span>/about</span>
+                </a>
+                <a href="/services" class="block font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-3 py-3 px-2 rounded-lg hover:bg-white/5 mobile-nav-spacing">
+                    <i class="fas fa-cogs w-5 text-cyber-400"></i>
+                    <span>/services</span>
+                </a>
+                <a href="/writeups" class="block font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-3 py-3 px-2 rounded-lg hover:bg-white/5 mobile-nav-spacing">
+                    <i class="fas fa-file-code w-5 text-cyber-400"></i>
+                    <span>/writeups</span>
+                </a>
+                <a href="/contact" class="block font-mono text-sm hover:text-cyber-400 transition-colors duration-300 flex items-center space-x-3 py-3 px-2 rounded-lg hover:bg-white/5 mobile-nav-spacing">
+                    <i class="fas fa-envelope w-5 text-cyber-400"></i>
+                    <span>/contact</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content wrapper">
-            <div class="hero-terminal">
-                <div class="terminal-window active glass-panel">
-                    <div class="terminal-header">
-                        <div class="terminal-buttons">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="terminal-title"></div>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="line">
-                            <span class="prompt">root@HowToPwn:~#</span>
-                            <span class="command typing">cat about_team.txt</span>
-                        </div>
-                        <div class="line">
-                            <span class="output">Welcome to the HowToPwn Team - Cybersecurity for the future!</span>
-                        </div>
-                        <div class="line typing">
-                            <span class="prompt">root@HowToPwn:~#</span>
-                            <span class="command">echo "Empowering cybersecurity through knowledge sharing"</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-main">
-                <h1 class="hero-title glitch-text" data-text="Meet The Team">Meet The Team</h1>
-                <div class="hero-subtitle-wrapper">
-                    <p class="hero-subtitle">
-                        <span class="typing-text"></span>
-                        <span class="cursor"></span>
-                    </p>
-                </div>
-                <div class="cta-container">
-                    <a href="/services/" class="cta-button primary glass-panel" data-tilt>
-                        <span class="button-text">./explore_services.sh</span>
-                        <span class="button-icon">
-                            <i class="fas fa-terminal"></i>
-                        </span>
-                    </a>
-                    <a href="/contact/" class="cta-button secondary glass-panel" data-tilt>
-                        <span class="button-text">./contact_team.sh</span>
-                        <span class="button-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Main Content -->
-    <main class="page-content">
-        <section class="about-section wrapper" data-aos="fade-up">
-            <div class="section-header glass-panel">
-                <div class="section-header-content">
-                    <h2 class="section-title gradient-text">
-                        <span class="terminal-prompt">[root@howtopwn]</span>
-                        <span class="typing">About Our Team</span>
-                        <span class="cursor"></span>
-                    </h2>
-                    <div class="terminal-line">
-                        <span class="prompt">[*]</span>
-                        <span class="command">Mission: Empowering cybersecurity through knowledge sharing and expertise</span>
+    <main class="pt-20 lg:pt-24">
+        <!-- Hero Section -->
+        <section class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center mb-12 sm:mb-16">
+                    <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-8">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold gradient-text mb-4">
+                            <span class="font-mono text-cyber-400">[root@howtopwn]</span><br>
+                            <span>./whoami --team</span>
+                        </h1>
+                        <p class="text-gray-300 font-mono text-sm sm:text-base lg:text-lg max-w-3xl mx-auto">
+                            <span class="text-cyber-400">[*]</span> Meet the elite cybersecurity professionals behind HowToPwn. Passionate hackers, researchers, and security experts united by a common mission.
+                        </p>
                     </div>
                 </div>
-                <div class="section-pattern"></div>
-            </div>
 
-            <!-- Team Overview -->
-            <div class="team-overview glass-card" data-aos="fade-up">
-                <div class="team-content">
-                    <h2 class="gradient-text">Who We Are</h2>
-                    <p>HowToPwn is a collective of passionate cybersecurity professionals, ethical hackers, and security researchers dedicated to sharing knowledge and advancing the field of information security. Our team brings together diverse expertise in various domains of cybersecurity, from web application security to reverse engineering and malware analysis.</p>
-                </div>
-                <div class="mission-vision">
-                    <div class="mission glass-panel" data-tilt data-tilt-max="5">
-                        <h3 class="gradient-text">Our Mission</h3>
-                        <p>To democratize cybersecurity knowledge and empower individuals and organizations with the skills and insights needed to protect their digital assets effectively.</p>
+                <!-- Team Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
+                    <div class="glass rounded-xl p-4 sm:p-6 text-center card-hover">
+                        <div class="text-2xl sm:text-3xl font-bold gradient-text mb-2">7</div>
+                        <div class="text-sm text-gray-400 font-mono">Team Members</div>
                     </div>
-                    <div class="vision glass-panel" data-tilt data-tilt-max="5">
-                        <h3 class="gradient-text">Our Vision</h3>
-                        <p>To build a more secure digital world through education, research, and community collaboration.</p>
+                    <div class="glass rounded-xl p-4 sm:p-6 text-center card-hover">
+                        <div class="text-2xl sm:text-3xl font-bold gradient-text mb-2">3</div>
+                        <div class="text-sm text-gray-400 font-mono">Months Active</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 sm:p-6 text-center card-hover">
+                        <div class="text-2xl sm:text-3xl font-bold gradient-text mb-2">200+</div>
+                        <div class="text-sm text-gray-400 font-mono">Challenges Solved</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 sm:p-6 text-center card-hover">
+                        <div class="text-2xl sm:text-3xl font-bold gradient-text mb-2">96%</div>
+                        <div class="text-sm text-gray-400 font-mono">Success Rate</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Team Stats -->
-            <div class="team-stats">
-                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
-                    <i class="fas fa-trophy"></i>
-                    <h3>Global Rankings</h3>
-                    <p class="gradient-text">#54 HTB Apocalypse CTF 2025</p>
-                </div>
-                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
-                    <i class="fas fa-users"></i>
-                    <h3>Team Members</h3>
-                    <p class="gradient-text">15+ Security Experts</p>
-                </div>
-                <div class="stat-card glass-panel" data-aos="fade-up" data-tilt>
-                    <i class="fas fa-file-code"></i>
-                    <h3>Write-ups Published</h3>
-                    <p class="gradient-text">200+ Technical Guides</p>
-                </div>
-            </div>
+                <!-- Team Members Grid -->
+                <div class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text mb-4">
+                            Our Team
+                        </h2>
+                        <p class="text-gray-300 font-mono">
+                            <span class="text-cyber-400">[*]</span> The minds behind the mission
+                        </p>
+                    </div>
 
-            <!-- Core Values -->
-            <div class="core-values glass-card" data-aos="fade-up">
-                <h2 class="gradient-text">Our Core Values</h2>
-                <div class="values-grid">
-                    <div class="value-item" data-tilt>
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Ethical Practice</h4>
-                        <p>We maintain the highest standards of ethical conduct in all our operations.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        <!-- Team Member 1 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-cyber-400 to-cyber-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-secret text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">0xLeader</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Team Captain</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Experienced penetration tester and CTF veteran. Specializes in web application security and leads our strategic initiatives.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-code text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">ByteHunter</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Reverse Engineer</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Expert in binary analysis and malware research. Passionate about uncovering hidden vulnerabilities in compiled code.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-key text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">CryptoNinja</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Cryptographer</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Cryptography specialist with deep knowledge of encryption algorithms and secure communication protocols.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-red-400 to-red-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-bug text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">ExploitMaster</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Exploit Developer</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Specializes in developing custom exploits and payload creation. Expert in binary exploitation and memory corruption.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 5 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-network-wired text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">NetGhost</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Network Security</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Network security expert with extensive knowledge of infrastructure penetration testing and network protocols.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 6 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-search text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">ForensicPro</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Digital Forensics</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Digital forensics specialist focused on incident response and evidence analysis. Expert in memory and disk forensics.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Team Member 7 -->
+                        <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 card-hover md:col-span-2 lg:col-span-1">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold gradient-text">MobileHacker</h3>
+                                    <p class="text-gray-400 font-mono text-sm">Mobile Security</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Mobile application security researcher specializing in iOS and Android penetration testing and reverse engineering.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-cyber-400 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="value-item" data-tilt>
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Continuous Learning</h4>
-                        <p>We believe in constant improvement and staying updated with the latest security trends.</p>
+                </div>
+
+                <!-- Mission & Values -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+                    <!-- Mission -->
+                    <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyber-400 to-cyber-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-bullseye text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold gradient-text">Our Mission</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            To democratize cybersecurity knowledge and empower individuals and organizations with the skills and insights needed to protect their digital assets effectively.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span class="text-sm">Advance cybersecurity education</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span class="text-sm">Share knowledge through CTF competitions</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span class="text-sm">Build a stronger security community</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="value-item" data-tilt>
-                        <i class="fas fa-hands-helping"></i>
-                        <h4>Community First</h4>
-                        <p>We prioritize giving back to the cybersecurity community through knowledge sharing.</p>
+
+                    <!-- Values -->
+                    <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold gradient-text">Our Values</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-black/20 rounded-lg">
+                                <h4 class="font-semibold text-white mb-2">Ethical Practice</h4>
+                                <p class="text-sm text-gray-400">We maintain the highest standards of ethical conduct in all our operations.</p>
+                            </div>
+                            <div class="p-4 bg-black/20 rounded-lg">
+                                <h4 class="font-semibold text-white mb-2">Continuous Learning</h4>
+                                <p class="text-sm text-gray-400">We believe in constant improvement and staying updated with the latest security trends.</p>
+                            </div>
+                            <div class="p-4 bg-black/20 rounded-lg">
+                                <h4 class="font-semibold text-white mb-2">Community First</h4>
+                                <p class="text-sm text-gray-400">We prioritize giving back to the cybersecurity community through knowledge sharing.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="value-item" data-tilt>
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>Innovation</h4>
-                        <p>We strive to develop creative solutions to complex security challenges.</p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text mb-4">
+                            Our Journey
+                        </h2>
+                        <p class="text-gray-300 font-mono">
+                            <span class="text-cyber-400">[*]</span> Key milestones in our cybersecurity adventure
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyber-400 to-cyber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-rocket text-white"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <h4 class="text-lg font-semibold text-white">Team Formation</h4>
+                                    <span class="text-sm text-gray-400 font-mono">March 2025</span>
+                                </div>
+                                <p class="text-gray-300">HowToPwn was officially formed by a group of passionate cybersecurity enthusiasts with a shared vision.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <h4 class="text-lg font-semibold text-white">First Major Achievement</h4>
+                                    <span class="text-sm text-gray-400 font-mono">March 2025</span>
+                                </div>
+                                <p class="text-gray-300">Achieved #54 ranking in HTB Cyber Apocalypse CTF 2025, establishing our presence in the cybersecurity community.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-star text-white"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <h4 class="text-lg font-semibold text-white">Continued Success</h4>
+                                    <span class="text-sm text-gray-400 font-mono">May 2025</span>
+                                </div>
+                                <p class="text-gray-300">Reached #80 in HTB Global rankings and #82 in TryHackMe Hackfinity, demonstrating consistent performance.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-globe text-white"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <h4 class="text-lg font-semibold text-white">Platform Launch</h4>
+                                    <span class="text-sm text-gray-400 font-mono">June 2025</span>
+                                </div>
+                                <p class="text-gray-300">Launched our official website and began sharing knowledge through detailed write-ups and tutorials.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,164 +685,62 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer glass-panel">
-        <div class="wrapper">
-            <div class="footer-grid">
-                <div class="footer-branding">
-                    <div class="footer-terminal glass-card">
-                        <div class="terminal-header">
-                            <div class="terminal-buttons">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <span class="terminal-title"></span>
-                        </div>
-                        <div class="terminal-content">
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="command">whoami</span>
-                            </div>
-                            <div class="terminal-output">Elite Cybersecurity Team</div>
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="command">status</span>
-                            </div>
-                            <div class="system-status">
-                                <div class="status-item">
-                                    <span class="status-dot active pulse-effect"></span>
-                                    <span>System: Online</span>
-                                </div>
-                                <div class="status-item">
-                                    <span class="status-dot active pulse-effect"></span>
-                                    <span>Security: Maximum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <footer class="glass border-t border-white/10 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center">
+                <div class="font-mono text-xs sm:text-sm text-gray-400 flex items-center justify-center space-x-2">
+                    <span class="text-cyber-400">$</span>
+                    <span>echo "© 2025 HowToPwn. All rights reserved."</span>
                 </div>
-
-                <nav class="footer-links">
-                    <h3 class="footer-heading gradient-text">Navigation</h3>
-                    <div class="footer-nav">
-                        <a href="/about-us/" class="nav-link glow-effect">./about</a>
-                        <a href="/services/" class="nav-link glow-effect">./services</a>
-                        <a href="/writeups/" class="nav-link glow-effect">./writeups</a>
-                        <a href="/contact/" class="nav-link glow-effect">./contact</a>
-                    </div>
-                </nav>
-
-                <div class="footer-social">
-                    <h3 class="footer-heading gradient-text">Connect</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://twitter.com/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://www.hackthebox.eu/teams/profile/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fas fa-cube"></i>
-                            <span>HackTheBox</span>
-                        </a>
-                        <a href="https://tryhackme.com/team/HowToPwn" target="_blank" rel="noopener noreferrer" class="social-link glow-effect">
-                            <i class="fas fa-user-secret"></i>
-                            <span>TryHackMe</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom glass-panel">
-                <span class="command">© 2025 HowToPwn. All rights reserved.</span>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
-        }
-    }
-    </script>
-    
-    <!-- Libraries -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script type="module" src="/assets/js/3d-background.js"></script>
-    <script src="/assets/js/animations.js"></script>
-    <script src="/assets/js/matrix-rain.js"></script>
-    <script src="/assets/js/card-hover.js"></script>
-
-    <!-- Initialize libraries -->
+    <!-- JavaScript -->
     <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            offset: 100
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
         
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 5,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2
-        });
-    </script>
-    <!-- Initialize libraries -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            offset: 100
-        });
-        
-        // Initialize vanilla-tilt
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 5,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2
-        });
-        
-        // Initialize typing effect
-        document.addEventListener('DOMContentLoaded', function() {
-            const text = "We are a collective of passionate cybersecurity professionals, ethical hackers, and researchers.";
-            const typingText = document.querySelector('.typing-text');
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    typingText.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('backdrop-blur-xl');
+            } else {
+                header.classList.remove('backdrop-blur-xl');
             }
+        });
+        
+        // Add smooth animations
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
             
-            typeWriter();
-            
-            // Animate progress bars when in view
-            const progressBars = document.querySelectorAll('.progress-bar');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const progress = entry.target.dataset.progress;
-                        entry.target.style.width = `${progress}%`;
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            progressBars.forEach(bar => observer.observe(bar));
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
         });
     </script>
 </body>
