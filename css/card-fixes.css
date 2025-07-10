@@ -1,0 +1,39 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body p {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.card-body .btn {
+    align-self: start;
+    margin-top: auto;
+}
+
+/* Additional spacing fixes */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-meta {
+    margin-bottom: 1rem;
+}
+
+/* Fix for service cards */
+.service-card .card-body {
+    text-align: center;
+}
+
+.service-card .card-body .btn {
+    align-self: center;
+}

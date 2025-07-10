@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - HowToPwn</title>
+    <meta name="description" content="Get in touch with HowToPwn for cybersecurity services, training, or collaboration opportunities.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/card-fixes.css">
+</head>
+<body class="dark-theme">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="../images/logo.jpg" alt="HowToPwn Logo" class="logo">
+                HowToPwn
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/reports">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-5">
+        <section class="contact-hero py-5 bg-gradient">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 mb-4">Get in Touch</h1>
+                        <p class="lead mb-4">Have questions about our services? Ready to strengthen your security? We're here to help.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Contact Information</h2>
+                        <div class="contact-info">
+                            <div class="info-item mb-4">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3 class="h5">Location</h3>
+                                    <p>Ho Chi Minh City, Vietnam</p>
+                                </div>
+                            </div>
+                            <div class="info-item mb-4">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3 class="h5">Email</h3>
+                                    <p><a href="mailto:corbierevn@gmail.com">corbierevn@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="info-item mb-4">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3 class="h5">Phone</h3>
+                                    <p>(+84)**********</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3 class="h5">Working Hours</h3>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM (GMT+7)<br>
+                                    Weekend: By appointment</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-connect mt-5">
+                            <h3 class="h5 mb-4">Connect With Us</h3>
+                            <div class="social-links">
+                                <a href="#" class="me-3" title="Follow us on Twitter" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+                                <a href="#" class="me-3" title="Connect on LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                                <a href="#" class="me-3" title="Fork us on GitHub" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                                <a href="#" title="Join our Discord community" aria-label="Discord"><i class="fab fa-discord fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="contact-form card">
+                            <div class="card-body">
+                                <h2 class="mb-4">Send Us a Message</h2>
+                                <form id="contactForm" action="#" method="POST">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <select class="form-select" id="subject" name="subject" required>
+                                            <option value="">Select a subject</option>
+                                            <option value="pentest">Penetration Testing</option>
+                                            <option value="training">CTF Training</option>
+                                            <option value="consulting">Security Consulting</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="privacy" required>
+                                        <label class="form-check-label" for="privacy">I agree to the privacy policy and terms of service</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section py-5 bg-gradient">
+            <div class="container">
+                <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        What types of security assessments do you offer?
+                                    </button>
+                                </h3>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        We offer comprehensive security assessments including web application penetration testing, network infrastructure testing, mobile application security assessments, cloud security reviews, and IoT device testing.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        How can I join your CTF training programs?
+                                    </button>
+                                </h3>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        You can join our CTF training programs by filling out the contact form above or emailing us directly. We offer both beginner and advanced tracks, and can customize training programs for teams.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        Do you offer remote security consulting?
+                                    </button>
+                                </h3>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, we offer remote security consulting services worldwide. Our team can work with your organization regardless of location, providing the same high-quality security expertise and guidance.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="text-white mb-4">About HowToPwn</h4>
+                    <p class="text-gray-400">Leading the way in cybersecurity excellence through competition, training, and professional services.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3" title="Follow us on Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3" title="Connect on LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="me-3" title="Fork us on GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="Join our Discord community" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blogs">Blog</a></li>
+                        <li><a href="/reports">Reports</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="text-white mb-4">Contact Info</h4>
+                    <ul class="list-unstyled footer-contact">
+                        <li><i class="fas fa-envelope me-2"></i> corbierevn@gmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (+84)**********</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> HCMC, Vietnam</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 border-light opacity-10">
+            <div class="text-center text-light">
+                <p class="mb-0">&copy; 2025 HowToPwn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
