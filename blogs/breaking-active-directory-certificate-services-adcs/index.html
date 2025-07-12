@@ -33,85 +33,154 @@
         </div>
     </nav>
 
-    <main>
-        <article class="blog-post py-5">
+    <main class="blog-main">
+        <article class="blog-post">
             <div class="container">
-                <header class="blog-header mb-5">
-                    <div class="post-meta mb-3">
-                        <span class="text-muted">July 8, 2025</span>
-                        <span class="badge bg-danger ms-2">Research</span>
+                <header class="blog-header">
+                    <div class="post-meta">
+                        <span class="text-muted"><i class="fas fa-calendar-alt"></i>June 12, 2025</span>
+                        <span class="badge bg-danger">Research</span>
                     </div>
-                    <h1 class="display-4 mb-4">Breaking Active Directory Certificate Services</h1>
-                    <div class="author d-flex align-items-center">
-                        <img src="../../images/logo.jpg" alt="Author" class="rounded-circle me-3" width="50">
-                        <div>
-                            <h6 class="mb-1">Written by Corbie</h6>
-                            <p class="text-muted mb-0">Lead Security Researcher</p>
+                    <h1 class="display-4">Breaking Active Directory Certificate Services - Vietnamese Blog</h1>
+                    <div class="author-info">
+                        <img src="../../images/logo.jpg" alt="Author" class="author-avatar">
+                        <div class="author-details">
+                            <h6 class="author-name">Written by uziii2208</h6>
+                            <p class="author-role">Lead Security Researcher</p>
                         </div>
                     </div>
+                    <div class="featured-image">
+                        <img src="../../images/adcs_hacking.png" alt="Team HowToPwn at Industrial Intrusion CTF 2025" class="img-fluid rounded shadow-lg">
                 </header>
 
-                <div class="blog-content">
-                    <img src="../../images/adcs_hacking.png" alt="ADCS Hacking" class="img-fluid rounded mb-4">
-                    
-                    <div class="content-body">
-                        <h2>Introduction to ADCS</h2>
-                        <p>Active Directory Certificate Services (AD CS) is a vital component of Microsoft's Public Key Infrastructure (PKI) implementation. It enables organizations to issue and manage digital certificates for various purposes, including authentication, encryption, and code signing.</p>
-                        
-                        <h2>Common Misconfigurations</h2>
-                        <p>In this deep dive, we'll explore several critical misconfigurations that can lead to security breaches:</p>
-                        <ul>
-                            <li>Misconfigured Certificate Templates</li>
-                            <li>Weak Enrollment Permissions</li>
-                            <li>Vulnerable Certificate Authority Settings</li>
-                            <li>Inadequate Access Controls</li>
-                        </ul>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="content-section">
+                            <h2>Introduction</h2>
+                            <p>Active Directory Certificate Services (ADCS) plays a crucial role in enterprise PKI infrastructure. However, misconfigurations in ADCS can lead to serious security vulnerabilities. This blog post explores common attack vectors and defense strategies.</p>
+                            
+                            <div class="security-advisory">
+                                <strong>Security Advisory:</strong> The techniques described in this post are for educational purposes only. Always ensure you have proper authorization before testing in any environment.
+                            </div>
 
-                        <h2>Exploitation Techniques</h2>
-                        <div class="code-block bg-dark p-4 rounded mb-4">
-                            <pre class="text-light mb-0"><code>certutil -dump
-certutil -view
-Get-CertificateTemplate</code></pre>
-                        </div>
-                        <p>We'll demonstrate how attackers can exploit these misconfigurations to:</p>
-                        <ul>
-                            <li>Generate unauthorized certificates</li>
-                            <li>Escalate privileges</li>
-                            <li>Persist in the network</li>
-                            <li>Impersonate legitimate users</li>
-                        </ul>
+                            <h2>Understanding AD CS</h2>
+                            <p>AD CS is Microsoft's Public Key Infrastructure (PKI) implementation that provides:</p>
+                            <ul>
+                                <li>Digital certificate management</li>
+                                <li>Certificate enrollment services</li>
+                                <li>Key archival and recovery</li>
+                            </ul>
 
-                        <h2>Detection and Prevention</h2>
-                        <p>To protect your AD CS infrastructure:</p>
-                        <ol>
-                            <li>Regularly audit certificate templates</li>
-                            <li>Implement strict access controls</li>
-                            <li>Monitor certificate issuance</li>
-                            <li>Use secure template settings</li>
-                        </ol>
+                            <h3>Common Misconfigurations</h3>
+                            <div class="code-block">
+                                <div class="code-block-header">
+                                    <span>Common Vulnerable Settings</span>
+                                    <button class="copy-button">Copy</button>
+                                </div>
+                                <div class="code-block-content">
+                                    <pre><code>EDITF_ATTRIBUTESUBJECTALTNAME2
+CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT
+No Manager Approval</code></pre>
+                                </div>
+                            </div>
 
-                        <div class="alert alert-warning">
-                            <h4 class="alert-heading">⚠️ Security Note</h4>
-                            <p class="mb-0">This information is provided for educational purposes only. Always ensure you have proper authorization before testing security controls in any environment.</p>
+                            <h2>Attack Vectors</h2>
+                            
+                            <h3>ESC1: User Certificate Abuse</h3>
+                            <p>ESC1 is the simplest ADCS attack, and honestly, it's my favorite because it's so reliable. It exploits certificate templates that allow attackers to specify arbitrary Subject Alternative Names (SAN).</p>
+
+                            <div class="pro-tip">
+                                <p>The most common vulnerability involves misconfigured certificate templates that allow users to specify alternative names.</p>
+                            </div>
+
+                            <h3>ESC2: Machine Certificate Abuse</h3>
+                            <p>ESC2 targets templates with "Any Purpose" in Extended Key Usage, meaning the certificate can be used for any purpose. This becomes particularly dangerous when combined with other vulnerabilities.</p>
+
+                            <h3>ESC3: Enrollment Agent Template Abuse</h3>
+                            <p>ESC3 exploits certificate templates that grant Certificate Request Agent privileges. It allows requesting certificates on behalf of other users.</p>
+
+                            <h3>ESC4: Certificate Template Permissions</h3>
+                            <p>ESC4 involves modifying a secure template to make it vulnerable, exploiting it, then removing your tracks.</p>
+
+                            <h3>ESC5: Vulnerable PKI Object Access</h3>
+                            <p>ESC5 exploits weak permissions on PKI objects themselves, including CA servers and certificate template containers.</p>
+
+                            <h3>ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2 Flag</h3>
+                            <p>ESC6 exploits the EDITF_ATTRIBUTESUBJECTALTNAME2 flag on CAs, allowing specification of SANs in any certificate request.</p>
+
+                            <h3>ESC7: Certificate Authority Access</h3>
+                            <p>ESC7 involves direct access to the CA. If you have ManageCA or ManageCertificates rights, you essentially own the entire certificate infrastructure.</p>
+
+                            <h3>ESC8: NTLM Relay to HTTP Endpoints</h3>
+                            <p>ESC8 combines ADCS with NTLM relay attacks, targeting HTTP-based certificate enrollment endpoints.</p>
+
+                            <h3>ESC9: No Security Extension</h3>
+                            <p>ESC9 exploits certificate templates that don't require the szOID_NTDS_CA_SECURITY_EXT security extension in issued certificates.</p>
+
+                            <h3>ESC10: Certificate Mapping Vulnerabilities</h3>
+                            <p>ESC10 exploits weak certificate-to-account mapping configurations and certificate mapping vulnerabilities.</p>
+
+                            <h3>ESC11: ICERTREQUEST Interface</h3>
+                            <p>ESC11 targets CAs configured with the IF_ENFORCEENCRYPTICERTREQUEST flag, which can be bypassed under certain conditions.</p>
+
+                            <h3>ESC12: CA Server Configuration</h3>
+                            <p>ESC12 involves vulnerabilities in the CA server configuration itself, including YubiHSM vulnerabilities.</p>
+
+                            <h3>ESC13: OID Group Policy Links</h3>
+                            <p>ESC13 exploits certificate templates with issuance policies linked to Active Directory groups.</p>
+
+                            <h3>ESC14: Shadow Credentials</h3>
+                            <p>ESC14 represents advanced certificate mapping techniques beyond basic altSecurityIdentities exploitation.</p>
+
+                            <h3>ESC15: Version 1 Template Application Policies</h3>
+                            <p>ESC15, also known as "EKUwu", exploits a vulnerability in version 1 certificate templates where attackers can specify arbitrary Application Policies in certificate requests.</p>
+
+                            <h3>ESC16: ADCS Web Enrollment Relay</h3>
+                            <p>ESC16 exploits NTLM relay capabilities to ADCS web enrollment interfaces, allowing certificate theft through NTLM relay.</p>
+
+                            <h2>Defense Strategies</h2>
+                            <ul>
+                                <li>Regular template auditing</li>
+                                <li>Implement strict access controls</li>
+                                <li>Monitor certificate requests</li>
+                                <li>Enable certificate request logging</li>
+                            </ul>
+
+                            <h2>Conclusion</h2>
+                            <p>Securing AD CS requires continuous monitoring and proper configuration management. Regular security assessments and staying updated with the latest security recommendations are essential.</p>
                         </div>
                     </div>
 
-                    <div class="blog-tags mt-5">
-                        <h5>Tags</h5>
-                        <div class="tags">
-                            <a href="#" class="badge bg-secondary me-2">Active Directory</a>
-                            <a href="#" class="badge bg-secondary me-2">ADCS</a>
-                            <a href="#" class="badge bg-secondary me-2">Security Research</a>
-                            <a href="#" class="badge bg-secondary me-2">Penetration Testing</a>
-                        </div>
-                    </div>
-
-                    <div class="share-post mt-5">
-                        <h5>Share this post</h5>
-                        <div class="social-share">
-                            <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-twitter"></i> Tweet</a>
-                            <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-linkedin"></i> Share</a>
-                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-facebook"></i> Share</a>
+                    <div class="col-lg-4">
+                        <!-- Update Table of Contents -->
+                        <div class="toc">
+                            <h4 class="toc-title">Table of Contents</h4>
+                            <ul class="toc-list">
+                                <li><a href="#introduction" class="toc-link">Introduction</a></li>
+                                <li><a href="#understanding-ad-cs" class="toc-link">Understanding AD CS</a></li>
+                                <li><a href="#attack-vectors" class="toc-link">Attack Vectors</a>
+                                    <ul>
+                                        <li><a href="#esc1" class="toc-link">ESC1: User Certificate Abuse</a></li>
+                                        <li><a href="#esc2" class="toc-link">ESC2: Machine Certificate with Any Purpose EKU</a></li>
+                                        <li><a href="#esc3" class="toc-link">ESC3: Certificate Request Agent Abuse</a></li>
+                                        <li><a href="#esc4" class="toc-link">ESC4: Template Access Control Vulnerability</a></li>
+                                        <li><a href="#esc5" class="toc-link">ESC5: PKI Object Access Control</a></li>
+                                        <li><a href="#esc6" class="toc-link">ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2</a></li>
+                                        <li><a href="#esc7" class="toc-link">ESC7: CA Access Control</a></li>
+                                        <li><a href="#esc8" class="toc-link">ESC8: NTLM Relay to ADCS</a></li>
+                                        <li><a href="#esc9" class="toc-link">ESC9: Security Extension Missing</a></li>
+                                        <li><a href="#esc10" class="toc-link">ESC10: Certificate Mapping Issues</a></li>
+                                        <li><a href="#esc11" class="toc-link">ESC11: ICERTREQUEST Vulnerabilities</a></li>
+                                        <li><a href="#esc12" class="toc-link">ESC12: CA Server Vulnerabilities</a></li>
+                                        <li><a href="#esc13" class="toc-link">ESC13: Policy OID Misconfigurations</a></li>
+                                        <li><a href="#esc14" class="toc-link">ESC14: Advanced Certificate Mapping</a></li>
+                                        <li><a href="#esc15" class="toc-link">ESC15: Template Version 1 Issues</a></li>
+                                        <li><a href="#esc16" class="toc-link">ESC16: Web Enrollment Attacks</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#defense-strategies" class="toc-link">Defense Strategies</a></li>
+                                <li><a href="#conclusion" class="toc-link">Conclusion</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

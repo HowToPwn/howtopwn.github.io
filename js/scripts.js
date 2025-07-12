@@ -684,3 +684,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Maintenance popup functionality
+const showMaintenancePopup = () => {
+    const popup = document.getElementById('maintenancePopup');
+    const overlay = document.getElementById('maintenanceOverlay');
+    if (popup && overlay) {
+        popup.classList.add('show');
+        overlay.classList.add('show');
+    }
+};
+
+// Show maintenance notice on every page load
+function showMaintenanceNotice() {
+    document.getElementById('maintenanceOverlay').classList.add('show');
+    document.getElementById('maintenancePopup').classList.add('show');
+}
+
+// Close maintenance popup
+function closeMaintenancePopup() {
+    document.getElementById('maintenanceOverlay').classList.remove('show');
+    document.getElementById('maintenancePopup').classList.remove('show');
+}
+
+// Run when document is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    showMaintenanceNotice();
+});
+
+// Show maintenance popup when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    showMaintenancePopup();
+});
+// Close maintenance popup
+function closeMaintenancePopup() {
+    document.getElementById('maintenanceOverlay').classList.remove('show');
+    document.getElementById('maintenancePopup').classList.remove('show');
+    localStorage.setItem('maintenanceAcknowledged', 'true');
+}
+
+// Run when document is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    checkMaintenanceNotice();
+});
+
+// Show maintenance popup when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    showMaintenancePopup();
+});

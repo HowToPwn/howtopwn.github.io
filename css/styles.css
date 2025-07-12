@@ -707,3 +707,291 @@ footer .social-links a:hover {
     font-size: 0.875rem;
     letter-spacing: 0.5px;
 }
+
+/* Blog Post Specific Styles */
+.blog-post {
+    padding-top: 80px;
+}
+
+.blog-header {
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-header .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-header .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blog-header .author {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.blog-header .author img {
+    border: 2px solid var(--primary-color);
+}
+
+/* Content Section Styles */
+.content-section {
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.content-section h3 {
+    color: var(--primary-hover);
+    font-size: 1.6rem;
+    margin: 1.8rem 0 1.2rem;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.content-section ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-section ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Code Block Enhancements */
+.code-block {
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-block-content {
+    padding: 1.5rem;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 0;
+}
+
+.code-block code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e6e6e6;
+}
+
+/* Table of Contents Enhancement */
+.toc {
+    position: sticky;
+    top: 100px;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-link {
+    display: block;
+    padding: 0.6rem 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.toc-link:hover {
+    color: var(--primary-hover);
+    padding-left: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .toc {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+    }
+}
+
+/* Security Advisory Box */
+.security-advisory {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.security-advisory::before {
+    content: '⚠️';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 5rem;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+/* Pro Tips Box */
+.pro-tip {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.pro-tip::before {
+    content: '💡';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Code Copy Button */
+.copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Enhance existing styles */
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-info {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.author-info .author-details {
+    flex: 1;
+}
+
+.author-info .author-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.author-info .author-role {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.author-info .author-details {
+    flex: 1;
+}
+
+.author-info .author-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.author-info .author-role {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
