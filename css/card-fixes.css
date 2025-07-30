@@ -12,6 +12,7 @@
 .card-body p {
     flex-grow: 1;
     margin-bottom: 1rem;
+    color: #29bbaf;
 }
 
 .card-body .btn {
